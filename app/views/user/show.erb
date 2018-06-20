@@ -1,0 +1,10 @@
+<h1><%=@user.username%></h1>
+
+<h2>Your Decks</h2>
+<%@user.decks.each_with_index do |deck, index|%>
+<%=index + 1%>
+    <p>Title: <%=deck.title%></p>
+    <p>Category: <%=deck.category%></p>
+    <p>Contains: <%=deck.number_of_cards%> cards</p>
+    <p>Cards learnt <%=Helpers.calculate_learnt_cards(deck)%></p>
+<%end%>
