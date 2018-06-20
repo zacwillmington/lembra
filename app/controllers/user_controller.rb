@@ -34,16 +34,18 @@
      end
 
      get '/users/:id/decks' do
-         @user = Helpers.current_user(session)
-         if @user.id == params[:id].to_i
+
+         if Helpers.current_user(session).id == params[:id].to_i
+             @user = Helpers.current_user(session)
              binding.pry
              erb :'/user/show'
-         elsif !Helpers.is_logged_in?(session)
-             redirect to '/login'
+         elsif Helpers.is_logged_in?(session)
+             binding.pry
+             @user = User.find_by(:id => params[:id])
+             erb :'/user/show'
          else
              binding.pry
-             @user = User.Find_by(:id => params[:id])
-             erb :'/user/show'
+             redirect to '/login'
          end
      end
  end
