@@ -3,7 +3,7 @@
      get '/signup' do
          if Helpers.is_logged_in?(session)
              @user = Helpers.current_user(session)
-             redirect to "/users/#{@user.id}/decks"
+             redirect to "/users/#{@user.id}"
          else
              erb :'/users/signup'
          end
@@ -12,11 +12,11 @@
      post '/signup' do
           if Helpers.is_logged_in?(session)
               @user = Helpers.current_user(session)
-              redirect to "/users/#{@user.id}/decks"
+              redirect to "/users/#{@user.id}"
         elsif !Helpers.is_params_empty?(params)
             @user = User.create(:username => params['username'], :email => params['email'], :password => params['password'])
             session[:id] = @user.id
-            redirect to "/users/#{@user.id}/decks"
+            redirect to "/users/#{@user.id}"
         else
             redirect to '/signup'
 
@@ -33,15 +33,14 @@
             redirect to '/signup'
         elsif @user.authenticate(params['password'])
             session[:id] = @user.id
-            redirect to "/users/#{@user.id}/decks"
+            redirect to "/users/#{@user.id}"
         end
      end
 
-     get '/users/:id/decks' do
-
+     get '/users/:id' do
+         #Allows only owner to view their decks via a redirect
          if Helpers.is_logged_in?(session)
-             @user = User.find_by(:id => params[:id])
-             erb :'/users/show'
+             redirect to '/decks'
          else
              redirect to '/login'
          end
