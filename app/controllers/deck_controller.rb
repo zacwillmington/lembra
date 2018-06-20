@@ -10,6 +10,16 @@ class DeckController < ApplicationController
         erb :'/decks/create_deck'
     end
 
+    post '/decks' do
+         binding.pry
+         @deck = Deck.create(:title => params['title'], :category => params['category'])
+         @user = Helpers.current_user(session)
+         @user.decks << @deck
+         @user.save
+         binding.pry
+        redirect to "/decks/#{@deck.id}"
+    end
+
     get '/decks/:id' do
         @deck = Deck.find_by(:id => params[:id])
         erb :'decks/show_deck'
