@@ -34,9 +34,9 @@
      end
 
      get '/users/:id/decks' do
-         binding.pry
          @user = Helpers.current_user(session)
          if @user.id == params[:id].to_i
+             binding.pry
              erb :'/user/show'
          elsif !Helpers.is_logged_in?(session)
              redirect to '/login'

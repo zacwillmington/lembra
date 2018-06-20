@@ -26,4 +26,8 @@ class Helpers
         end.size
     end
 
+    def self.number_of_cards_in_deck(deck)
+        deck.cards.all.size
+    end
+
 end
