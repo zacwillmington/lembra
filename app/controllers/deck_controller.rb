@@ -26,7 +26,20 @@ class DeckController < ApplicationController
     end
 
     get '/decks/:id/edit' do
+        @deck = Deck.find_by(:id => params[:id])
         erb :'/decks/edit_deck'
+    end
+
+    post '/decks/:id' do
+        @deck = Deck.find_by(:id => params[:id])
+        if @deck.user.id == Helpers.current_user(session).id
+            @deck.title = params['title']
+            @deck.category = params['category']
+            @deck.save
+            redirect to "/decks/#{@deck.id}"
+        else
+            redirect '/decks'
+        end
     end
 
 

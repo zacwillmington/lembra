@@ -1,5 +1,5 @@
 <h1>Title: <%=@deck.title%></h1>
-
+<h2>Category: <%=@deck.title%></h2>
 <%@deck.cards.each_with_index do |card, index|%>
     <p><%=index + 1%></p>
     <p><%=card.front_side%></p>
@@ -8,5 +8,8 @@
     <a href="/cards/<%=card.id%>/edit">Edit card</a>
     <a href="/cards/<%=card.id%>/edit">Delete card</a>
 <%end%>
-
+<a href="/cards/new">Add Card<a>
+<br>
+<a href="/decks">Return to decks</a>
+<br>
 <a href="/decks/<%=@deck.id%>/edit">Edit deck Title or category</a>
