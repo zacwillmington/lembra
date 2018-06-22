@@ -35,6 +35,30 @@ class CardController < ApplicationController
     end
 
     get '/users/:id/decks/:deck_id/cards/:card_id/edit' do
-        erb :'/cards/edit_card'
+        if Helpers.is_logged_in?(session)
+            @user = Helpers.current_user(session)
+            @deck = Deck.find_by(:id => params[:deck_id])
+            @card = Card.find_by(:id => params[:card_id])
+            erb :'/cards/edit_card'
+        else
+            redirect to "/users/#{@user.id}/decks"
+        end
     end
+
+    patch '/users/:id/decks/:deck_id/cards/:card_id' do
+        binding.pry
+        @card = Card.find_by(:id => params[:card_id])
+        @deck = Deck.find_by(:id => params[:deck_id])
+        @user = Helpers.current_user(session)
+        if @deck.user.id == Helpers.current_user(session).id
+            @card.front_side = params['front_side']
+            @card.back_side = params['back_side']
+            @card.save
+            redirect to "/users/#{@deck.user.id}/decks/#{@deck.id}/cards/#{@card.id}"
+        else
+            redirect to "/users/#{@user.id}/decks"
+        end
+    end
+    #edit cards
+     #delete card
 end

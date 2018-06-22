@@ -42,5 +42,6 @@ class DeckController < ApplicationController
         end
     end
 
+    #delete deck
 
 end

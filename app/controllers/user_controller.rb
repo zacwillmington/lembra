@@ -51,4 +51,10 @@
          session.clear
          redirect to '/login'
      end
+
+
+     #edit account_info in account_settings.erb
+     #delete user in account_settings.erb
+
+
  end

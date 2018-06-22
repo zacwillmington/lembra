@@ -1,5 +1,5 @@
 <h1>Title: <%=@deck.title%></h1>
-<h2>Category: <%=@deck.title%></h2>
+<h2>Category: <%=@deck.category%></h2>
 <%@deck.cards.each_with_index do |card, index|%>
     <p><%=index + 1%></p>
     <p>Front <%=card.front_side%></p>
