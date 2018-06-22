@@ -1,11 +1,11 @@
-<h1><%=@user.username%></h1>
+<h1><%=current_user.username%></h1>
 
 <h2>Your Account</h2>
-<p>You have <%=@user.decks.all.size%> decks</p>
+<p>You have <%=current_user.decks.all.size%> decks</p>
 
 <p>Categories include</p>
-<%@user.decks.each do |deck|%>
+<%current_user.decks.each do |deck|%>
     <p><%=deck.title%></p>
 <%end%>
-    <a href="/decks/<%=deck.id%>">View Deck</a>
+    <a href="/users/current_user.id/decks/<%=deck.id%>">View Deck</a>
 <%end%>

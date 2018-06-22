@@ -1,14 +1,26 @@
 <h1>Sign Up</h1>
 
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this account from being created:</h2>
+
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <form action="/signup" method="post">
     <label for="username">Username</label>
-    <input id="username" type="text" name="username" required>
+    <input id="username" type="text" name="username" >
     <br>
     <label for="email">Email</label>
-    <input id="email" type="text" name="email" required>
+    <input id="email" type="text" name="email" >
     <br>
     <label for="password">Password</label>
-    <input id="password" type="password" name="password" required>
+    <input id="password" type="password" name="password">
     <br>
     <input type="submit" value="Signup">
 </form>

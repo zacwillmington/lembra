@@ -16,7 +16,6 @@ class CardController < ApplicationController
     end
 
     post '/users/:id/decks/:deck_id/cards' do
-        current_user
         @deck = Deck.find_by(:id => params[:deck_id])
         @card = Card.create(:front_side => params['front_side'], :back_side => params['back_side'])
         @deck.cards << @card
@@ -44,7 +43,7 @@ class CardController < ApplicationController
     patch '/users/:id/decks/:deck_id/cards/:card_id' do
         @card = Card.find_by(:id => params[:card_id])
         @deck = Deck.find_by(:id => params[:deck_id])
-        if @deck.user.id == Helpers.current_user(session).id
+        if @deck.user.id == current_user.id
             @card.front_side = params['front_side']
             @card.back_side = params['back_side']
             @card.save

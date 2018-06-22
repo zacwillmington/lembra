@@ -17,12 +17,17 @@
          binding.pry
           if is_logged_in?
               redirect to "/users/#{current_user.id}"
-          elsif !Helpers.is_params_empty?(params)
+          else
             @user = User.create(:username => params['username'], :email => params['email'], :password => params['password'])
-            session[:id] = @user.id
-            redirect to "/users/#{current_user.id}"
-         else
-            redirect to '/signup'
+            binding.pry
+            if @user.valid?
+                session[:id] = @user.id
+                redirect to "/users/#{current_user.id}"
+            else
+                binding.pry
+                @user.errors.messages
+                redirect to '/signup'
+            end
         end
      end
 
@@ -35,10 +40,13 @@
      end
 
      post '/login' do
-         binding.pry
-         if current_user.authenticate(params)
-            session[:id] = current_user.id
+         @user = User.find_by(:email => params['email'])
+         if @user.authenticate( params['password'])
+            session[:id] = @user.id
             redirect to "/users/#{current_user.id}"
+        else
+            redirect to '/login'
+        end
      end
 
      get '/users/:id' do

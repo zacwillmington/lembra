@@ -1,21 +1,21 @@
-<h1><%=@user.username%></h1>
+<h1><%=current_user.username%></h1>
 
 <h2>Your Decks</h2>
-<%@user.decks.each_with_index do |deck, index|%>
+<%current_user.decks.each_with_index do |deck, index|%>
 <%=index + 1%>
     <p>Title: <%=deck.title%></p>
     <p>Category: <%=deck.category%></p>
-    <%if Helpers.number_of_cards_in_deck(deck) == nil%>
+    <%if number_of_cards_in_deck(deck) == nil%>
         <p>Contains: 0 cards</p>
-    <%elsif Helpers.number_of_cards_in_deck(deck) == 1%>
+    <%elsif number_of_cards_in_deck(deck) == 1%>
         <p>Contains: 1 card</p>
     <%else%>
-        <p>Contains: <%=Helpers.number_of_cards_in_deck(deck)%> cards</p>
+        <p>Contains: <%=number_of_cards_in_deck(deck)%> cards</p>
     <%end%>
-    <p>Cards learnt <%=Helpers.calculate_learnt_cards(deck)%></p>
-    <a href="/users/<%=@user.id%>/decks/<%=deck.id%>">View Deck</a>
+    <p>Cards learnt <%=calculate_learnt_cards(deck)%></p>
+    <a href="/users/<%=current_user.id%>/decks/<%=deck.id%>">View Deck</a>
     <br>
 <%end%>
 
 <a>
-<a href="/users/<%=@user.id%>/decks/new">Create New Deck</a>
+<a href="/users/<%=current_user.id%>/decks/new">Create New Deck</a>

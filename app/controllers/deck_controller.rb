@@ -2,20 +2,17 @@ class DeckController < ApplicationController
 
 
     get '/users/:id/decks' do
-        @user = Helpers.current_user(session)
         erb :'/decks/decks'
     end
 
     get '/users/:id/decks/new' do
-        @user = Helpers.current_user(session)
         erb :'/decks/create_deck'
     end
 
     post '/users/:id/decks' do
          @deck = Deck.create(:title => params['title'], :category => params['category'])
-         @user = Helpers.current_user(session)
-         @user.decks << @deck
-         @user.save
+         current_user.decks << @deck
+         current_user.save
         redirect to "/users/#{@deck.user.id}/decks/#{@deck.id}"
     end
 
@@ -31,7 +28,7 @@ class DeckController < ApplicationController
 
     patch  '/users/:id/decks/:deck_id' do
         @deck = Deck.find_by(:id => params[:deck_id])
-        if @deck.user.id == Helpers.current_user(session).id
+        if @deck.user.id == current_user.id
             @deck.title = params['title']
             @deck.category = params['category']
             @deck.save

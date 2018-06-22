@@ -1,5 +1,5 @@
 <h1>Create A New Deck</h1>
-<form role="form" action="/users/<%=@user.id%>/decks" method="post">
+<form role="form" action="/users/<%=current_user.id%>/decks" method="post">
     <label for="title">Title</label>
     <input type="text" name="title">
     <br>
@@ -9,4 +9,4 @@
     <input type="submit" name="Create" value="Create">
 </form>
 
-<a href="/users/<%=@user.id%>/decks">Return to your decks</a>
+<a href="/users/<%=current_user.id%>/decks">Return to your decks</a>
