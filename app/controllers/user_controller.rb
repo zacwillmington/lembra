@@ -1,5 +1,10 @@
  class UserController < ApplicationController
 
+     configure do
+       enable :sessions
+       set :session_secret, "secret"
+     end
+
      get '/signup' do
          if is_logged_in?
              redirect to "/users/#{current_user.id}"
