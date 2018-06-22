@@ -2,13 +2,15 @@
 <h2>Category: <%=@deck.title%></h2>
 <%@deck.cards.each_with_index do |card, index|%>
     <p><%=index + 1%></p>
-    <p><%=card.front_side%></p>
-    <p><%=card.back_side%></p>
+    <p>Front <%=card.front_side%></p>
+    <p>Back <%=card.back_side%></p>
     <p><%=card.learnt%></p>
     <a href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/<%=card.id%>/edit">Edit card</a>
     <a href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/<%=card.id%>/edit">Delete card</a>
+    <br>
 <%end%>
-<a href="/cards/new">Add Card<a>
+<br>
+<a href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/new">Add Card<a>
 <br>
 <a href="/users/<%=@deck.user.id%>/decks">Return to decks</a>
 <br>
