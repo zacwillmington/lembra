@@ -13,13 +13,12 @@
           if Helpers.is_logged_in?(session)
               @user = Helpers.current_user(session)
               redirect to "/users/#{@user.id}"
-        elsif !Helpers.is_params_empty?(params)
+          elsif !Helpers.is_params_empty?(params)
             @user = User.create(:username => params['username'], :email => params['email'], :password => params['password'])
             session[:id] = @user.id
             redirect to "/users/#{@user.id}"
-        else
+         else
             redirect to '/signup'
-
         end
      end
 

@@ -38,7 +38,7 @@ class DeckController < ApplicationController
             @deck.save
             redirect to "/users/#{@deck.user.id}/decks/#{@deck.id}"
         else
-            redirect "/users/#{@deck.user.id}/decks "
+            redirect "/users/#{@deck.user.id}/decks"
         end
     end
 
