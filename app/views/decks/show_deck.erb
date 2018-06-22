@@ -5,11 +5,11 @@
     <p><%=card.front_side%></p>
     <p><%=card.back_side%></p>
     <p><%=card.learnt%></p>
-    <a href="/cards/<%=card.id%>/edit">Edit card</a>
-    <a href="/cards/<%=card.id%>/edit">Delete card</a>
+    <a href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/<%=card.id%>/edit">Edit card</a>
+    <a href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/<%=card.id%>/edit">Delete card</a>
 <%end%>
 <a href="/cards/new">Add Card<a>
 <br>
-<a href="/decks">Return to decks</a>
+<a href="/users/<%=@deck.user.id%>/decks">Return to decks</a>
 <br>
-<a href="/decks/<%=@deck.id%>/edit">Edit deck Title or category</a>
+<a href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/edit">Edit deck Title or category</a>

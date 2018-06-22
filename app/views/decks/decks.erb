@@ -13,9 +13,9 @@
         <p>Contains: <%=Helpers.number_of_cards_in_deck(deck)%> cards</p>
     <%end%>
     <p>Cards learnt <%=Helpers.calculate_learnt_cards(deck)%></p>
-    <a href="/decks/<%=deck.id%>">View Deck</a>
+    <a href="/users/<%=@user.id%>/decks/<%=deck.id%>">View Deck</a>
     <br>
 <%end%>
 
 <a>
-<a href="/decks/new">Create New Deck</a>
+<a href="/users/<%=@user.id%>/decks/new">Create New Deck</a>

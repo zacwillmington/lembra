@@ -39,8 +39,9 @@
 
      get '/users/:id' do
          #Allows only owner to view their decks via a redirect
+         @user = Helpers.current_user(session)
          if Helpers.is_logged_in?(session)
-             redirect to '/decks'
+             redirect to "/users/#{@user.id}/decks"
          else
              redirect to '/login'
          end
