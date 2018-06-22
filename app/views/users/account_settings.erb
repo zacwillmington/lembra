@@ -1,0 +1,12 @@
+
+<form action="/users/<%=current_user.id%>/edit" method="post">
+    <label for="username"></label>
+    <input type="text" name="username">
+    <br>
+    <label for="password"></label>
+    <input type="password" name="password">
+    <br>
+    <input type="submit" name="Edit Account">
+</form>
+<br>
+<a href="/users/<%=current_user.id/delete"></a>

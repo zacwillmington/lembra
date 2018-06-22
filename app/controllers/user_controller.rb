@@ -14,17 +14,14 @@
      end
 
      post '/signup' do
-         binding.pry
           if is_logged_in?
               redirect to "/users/#{current_user.id}"
           else
             @user = User.create(:username => params['username'], :email => params['email'], :password => params['password'])
-            binding.pry
             if @user.valid?
                 session[:id] = @user.id
                 redirect to "/users/#{current_user.id}"
             else
-                binding.pry
                 @user.errors.messages
                 redirect to '/signup'
             end
@@ -50,7 +47,6 @@
      end
 
      get '/users/:id' do
-         #Allows only owner to view their decks via a redirect
          if is_logged_in?
              redirect to "/users/#{current_user.id}/decks"
          else
@@ -64,9 +60,25 @@
          redirect to '/login'
      end
 
+     get '/users/:id/account/edit' do
+         if is_logged_in && current_user.id == params[:id]
+             erb :'user/account_settings'
+         else
+             redirect to '/login'
+         end
+     end
 
-     #edit account_info in account_settings.erb
-     #delete user in account_settings.erb
+     post '/user/:id/account/edit' do
+         binding.pry
+         redirect to "/users/#{current_user.id}/account"
+     end
 
+     get '/users/:id/delete' do
+         binding.pry
+         if is_logged_in && current_user.id == params[:id]
+             current_user.delete
+        end
+             redirect to '/signup'
+     end
 
  end
