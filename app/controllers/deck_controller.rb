@@ -12,7 +12,6 @@ class DeckController < ApplicationController
     end
 
     post '/users/:id/decks' do
-        binding.pry
          @deck = Deck.create(:title => params['title'], :category => params['category'])
          @user = Helpers.current_user(session)
          @user.decks << @deck

@@ -1,46 +1,45 @@
  class UserController < ApplicationController
 
      get '/signup' do
-         if Helpers.is_logged_in?(session)
-             @user = Helpers.current_user(session)
-             redirect to "/users/#{@user.id}"
+         if is_logged_in?
+             redirect to "/users/#{current_user.id}"
          else
              erb :'/users/signup'
          end
      end
 
      post '/signup' do
-          if Helpers.is_logged_in?(session)
-              @user = Helpers.current_user(session)
-              redirect to "/users/#{@user.id}"
+         binding.pry
+          if is_logged_in?
+              redirect to "/users/#{current_user.id}"
           elsif !Helpers.is_params_empty?(params)
             @user = User.create(:username => params['username'], :email => params['email'], :password => params['password'])
             session[:id] = @user.id
-            redirect to "/users/#{@user.id}"
+            redirect to "/users/#{current_user.id}"
          else
             redirect to '/signup'
         end
      end
 
      get '/login' do
-         erb :'/users/login'
+         if is_logged_in?
+             redirect to "/users/#{current_user.id}"
+         else
+             erb :'/users/login'
+         end
      end
 
      post '/login' do
-         @user = User.find_by(:username => params['username'])
-        if @user == nil
-            redirect to '/signup'
-        elsif @user.authenticate(params['password'])
-            session[:id] = @user.id
-            redirect to "/users/#{@user.id}"
-        end
+         binding.pry
+         if current_user.authenticate(params)
+            session[:id] = current_user.id
+            redirect to "/users/#{current_user.id}"
      end
 
      get '/users/:id' do
          #Allows only owner to view their decks via a redirect
-         @user = Helpers.current_user(session)
-         if Helpers.is_logged_in?(session)
-             redirect to "/users/#{@user.id}/decks"
+         if is_logged_in?
+             redirect to "/users/#{current_user.id}/decks"
          else
              redirect to '/login'
          end
