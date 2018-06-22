@@ -30,7 +30,7 @@ class DeckController < ApplicationController
         erb :'/decks/edit_deck'
     end
 
-    post 'users/:id/decks/:deck_id' do
+    patch  '/users/:id/decks/:deck_id' do
         @deck = Deck.find_by(:id => params[:deck_id])
         if @deck.user.id == Helpers.current_user(session).id
             @deck.title = params['title']
@@ -38,7 +38,7 @@ class DeckController < ApplicationController
             @deck.save
             redirect to "/users/#{@deck.user.id}/decks/#{@deck.id}"
         else
-            redirect "/users/#{@deck.user.id}/decks"
+            redirect "/users/#{@deck.user.id}/decks "
         end
     end
 

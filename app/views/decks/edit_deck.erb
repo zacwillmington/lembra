@@ -1,5 +1,5 @@
-<form role="form" action="/decks/<%=@deck.id%>" method="post">
-    <input type="hidden" name="patch" value="_method">
+<form role="form" action="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>" method="post">
+    <input type="hidden" name="_method" value="patch">
     <h3><%=@deck.title%></h3>
     <label for="title">Title</label>
     <input type="text" name="title">
