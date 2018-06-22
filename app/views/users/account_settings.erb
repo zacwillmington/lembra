@@ -5,9 +5,8 @@
     <input type="submit" value="Change Password">
 </form>
 <br>
-
 <form action="/users/<%=current_user.id%>/delete" method="post">
-    <label for="hidden">Delete Account</label>
+  <label for="hidden">Delete Account</label>
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete">
 </form>

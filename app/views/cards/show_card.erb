@@ -1,5 +1,9 @@
 <h2><%=@card.front_side%></h2>
 <h2><%=@card.back_side%></h2>
 <h2><%=@card.learnt%></h2>
-<a href="/cards/<%=@card.id%>/delete">Delete</a>
-<a href="/cards/<%=@card.id%>/edit">Edit</a>
+<form action="/users/<%=current_user.id%>/decks/<%=@deck.id%>/cards/<%=@card.id%>/delete" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete">
+</form>
+<a href="/users/<%=current_user.id%>/decks/<%=@deck.id%>/cards/<%=@card.id%>/edit">Edit</a>
+<a href="/users/<%=current_user.id%>/decks">Return to Decks</a>

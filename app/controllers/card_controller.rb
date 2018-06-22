@@ -26,12 +26,13 @@ class CardController < ApplicationController
 
     get '/users/:id/decks/:deck_id/cards/:card_id' do
         @card = Card.find_by(:id => params[:id])
+        @deck = Deck.find_by(:id => params[:deck_id])
         erb :'/cards/show_card'
     end
 
     get '/users/:id/decks/:deck_id/cards/:card_id/edit' do
         binding.pry
-        if is_logged_in? && current_user.id == params[:id]
+        if is_logged_in? && current_user.id == params[:id].to_i
             @deck = Deck.find_by(:id => params[:deck_id])
             @card = Card.find_by(:id => params[:card_id])
             erb :'/cards/edit_card'
@@ -44,10 +45,11 @@ class CardController < ApplicationController
         @card = Card.find_by(:id => params[:card_id])
         @deck = Deck.find_by(:id => params[:deck_id])
         if @deck.user.id == current_user.id
-            @card.front_side = params['front_side']
-            @card.back_side = params['back_side']
-            @card.save
-            redirect to "/users/#{@deck.user.id}/decks/#{@deck.id}/cards/#{@card.id}"
+            @card.update(:front_side => params['front_side'], :back_side => params['back_side'])
+            if @card.valid?
+                @card.save
+            end
+            redirect to "/users/#{current_user.id}/decks/#{@deck.id}/cards/#{@card.id}"
         else
             redirect to "/users/#{current_user.id}/decks"
         end

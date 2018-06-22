@@ -6,7 +6,10 @@
     <p>Back <%=card.back_side%></p>
     <p><%=card.learnt%></p>
     <a href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/<%=card.id%>/edit">Edit card</a>
-    <a href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/<%=card.id%>/delete">Delete card</a>
+    <form action="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/<%=card.id%>/delete" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Delete">
+    </form>
     <br>
 <%end%>
 <br>
