@@ -38,7 +38,7 @@
 
      post '/login' do
          @user = User.find_by(:email => params['email'])
-         if @user.authenticate( params['password'])
+         if @user != nil && @user.authenticate( params['password'])
             session[:id] = @user.id
             redirect to "/users/#{current_user.id}"
         else
@@ -60,25 +60,41 @@
          redirect to '/login'
      end
 
-     get '/users/:id/account/edit' do
-         if is_logged_in && current_user.id == params[:id]
-             erb :'user/account_settings'
+     get '/users/:id/edit' do
+         binding.pry
+         if is_logged_in? && current_user.id == params[:id].to_i
+             erb :'users/account_settings'
          else
              redirect to '/login'
          end
      end
 
-     post '/user/:id/account/edit' do
-         binding.pry
-         redirect to "/users/#{current_user.id}/account"
+     post '/users/:id' do
+        if current_user.id == params[:id].to_i
+            binding.pry
+             current_user.update(:password => params['password'])
+             binding.pry
+             if current_user.valid?
+                 binding.pry
+                 current_user.save
+             end
+             redirect to "/users/#{current_user.id}"
+        else
+            redirect to "/users/#{current_user.id}/decks"
+        end
      end
 
-     get '/users/:id/delete' do
+     delete '/users/:id/delete' do
          binding.pry
-         if is_logged_in && current_user.id == params[:id]
+         if is_logged_in? && current_user.id == params[:id].to_i
+             binding.pry
              current_user.delete
-        end
+              session.clear
              redirect to '/signup'
+         else
+             redirect to "/users/#{current_user.id}"
+        end
+
      end
 
  end

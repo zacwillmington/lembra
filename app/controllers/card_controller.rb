@@ -52,6 +52,17 @@ class CardController < ApplicationController
             redirect to "/users/#{current_user.id}/decks"
         end
     end
-    #edit cards
+
+    delete '/users/:id/decks/:deck_id/cards/:card_id/delete' do
+
+        if is_logged_in? && current_user.id == params[:id].to_i
+            binding.pry
+            @deck = Deck.find_by(:id => params[:deck_id])
+            Card.find_by(:id => params['card_id']).delete
+            redirect to "/users/#{current_user.id}/decks/#{@deck.id}/cards"
+        else
+            redirect to "/users/#{current_user.id}"
+       end
+    end
      #delete card
 end
