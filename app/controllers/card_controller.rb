@@ -6,7 +6,6 @@ class CardController < ApplicationController
     end
 
     get '/users/:id/decks/:deck_id/cards/new' do
-        binding.pry
         @deck = Deck.find_by(:id => params[:deck_id])
         if @deck.user.id == current_user.id
             erb :'/cards/create_card'
@@ -31,7 +30,6 @@ class CardController < ApplicationController
     end
 
     get '/users/:id/decks/:deck_id/cards/:card_id/edit' do
-        binding.pry
         if is_logged_in? && current_user.id == params[:id].to_i
             @deck = Deck.find_by(:id => params[:deck_id])
             @card = Card.find_by(:id => params[:card_id])
@@ -58,7 +56,6 @@ class CardController < ApplicationController
     delete '/users/:id/decks/:deck_id/cards/:card_id/delete' do
 
         if is_logged_in? && current_user.id == params[:id].to_i
-            binding.pry
             @deck = Deck.find_by(:id => params[:deck_id])
             Card.find_by(:id => params['card_id']).delete
             redirect to "/users/#{current_user.id}/decks/#{@deck.id}/cards"

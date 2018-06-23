@@ -61,7 +61,6 @@
      end
 
      get '/users/:id/edit' do
-         binding.pry
          if is_logged_in? && current_user.id == params[:id].to_i
              erb :'users/account_settings'
          else
@@ -71,11 +70,8 @@
 
      post '/users/:id' do
         if current_user.id == params[:id].to_i
-            binding.pry
              current_user.update(:password => params['password'])
-             binding.pry
              if current_user.valid?
-                 binding.pry
                  current_user.save
              end
              redirect to "/users/#{current_user.id}"
@@ -85,9 +81,7 @@
      end
 
      delete '/users/:id/delete' do
-         binding.pry
          if is_logged_in? && current_user.id == params[:id].to_i
-             binding.pry
              current_user.delete
               session.clear
              redirect to '/signup'

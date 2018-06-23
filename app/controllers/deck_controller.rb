@@ -32,7 +32,6 @@ class DeckController < ApplicationController
     end
 
     patch  '/users/:id/decks/:deck_id' do
-        binding.pry
         @deck = Deck.find_by(:id => params[:deck_id])
         if @deck.user.id == current_user.id
             @deck.title = params['title']

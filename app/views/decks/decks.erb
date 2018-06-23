@@ -1,20 +1,23 @@
 <h1><%=current_user.username%></h1>
 
 <h2>Your Decks</h2>
-<%current_user.decks.each_with_index do |deck, index|%>
-<%=index + 1%>
-    <p>Title: <%=deck.title%></p>
-    <p>Category: <%=deck.category%></p>
-    <%if number_of_cards_in_deck(deck) == nil%>
-        <p>Contains: 0 cards</p>
-    <%elsif number_of_cards_in_deck(deck) == 1%>
-        <p>Contains: 1 card</p>
-    <%else%>
-        <p>Contains: <%=number_of_cards_in_deck(deck)%> cards</p>
+    <%current_user.decks.each_with_index do |deck, index|%>
+    <div class="card">
+        <%=index + 1%>
+            <p>Title: <%=deck.title%></p>
+            <p>Category: <%=deck.category%></p>
+            <%if number_of_cards_in_deck(deck) == nil%>
+                <p>Contains: 0 cards</p>
+            <%elsif number_of_cards_in_deck(deck) == 1%>
+                <p>Contains: 1 card</p>
+            <%else%>
+                <p>Contains: <%=number_of_cards_in_deck(deck)%> cards</p>
+            <%end%>
+            <p>Cards learnt <%=calculate_learnt_cards(deck)%></p>
+            <a href="/users/<%=current_user.id%>/decks/<%=deck.id%>">View Deck</a>
+            </div>
+            <br>
     <%end%>
-    <p>Cards learnt <%=calculate_learnt_cards(deck)%></p>
-    <a href="/users/<%=current_user.id%>/decks/<%=deck.id%>">View Deck</a>
-    <br>
-<%end%>
+
 <a href="/users/<%=current_user.id%>/edit">Account Settings</a>
 <a href="/users/<%=current_user.id%>/decks/new">Create New Deck</a>
