@@ -38,6 +38,12 @@ h1, h2 {
       border-radius: 3px;
       margin: auto;
  }
+
+ .anchor-link {
+     background-color: #07c17a;
+     border-radius: 3px;
+     padding: 5px 5px 5px 5px;
+ }
 /***** LAYOUT PAGE ******/
 
 /***** HOME PAGE ******/
@@ -95,15 +101,26 @@ h1.login {
 }
 
 /***** SHOW DECK PAGE ******/
-
+.wrapper {
+    display: flex;
+    margin: 50px auto;
+}
 .card{
-    border: 3px solid #07c17a;
+    background-color: #3f3f3f;
+    /* border: 3px solid #07c17a; */
     border-radius: 3px;
-    max-width: 100%;
-    height: 200px;
-    padding-left: 50px;
+    width: 300px;
+    height: 250px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding: 10px 20px 10px 20px;
+    margin-left: 15px;
 }
 
 .delete-button{
     border: none;
+}
+
+.acc-create-deck {
+    text-align: center;
 }
