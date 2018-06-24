@@ -7,8 +7,8 @@
         <strong class="card-info"><%=index + 1%></strong>
         <strong class="card-info">Front: <%=card.front_side%></strong>
         <strong class="card-info">Back: <%=card.back_side%></strong>
-        <strong class="card-info"><%=card.learnt%></strong>
-        <a href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/<%=card.id%>/edit">Edit card</a>
+        <strong class="card-info">Learnt:<%=card.learnt%></strong>
+        <a class="anchor-link" href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/<%=card.id%>/edit">Edit card</a>
         <form class="delete-button" action="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/<%=card.id%>/delete" method="post">
             <input type="hidden" name="_method" value="delete">
             <input type="submit" value="Delete">
