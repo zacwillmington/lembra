@@ -26,17 +26,17 @@ class DeckController < ApplicationController
     end
 
     get '/users/:id/decks/:deck_id/edit' do
-        if is_logged_in? && current_user.id == params['id']
+        if is_logged_in? && current_user.id == params['id'].to_i
             @deck = Deck.find_by(:id => params[:id])
             erb :'/decks/edit_deck'
         else
-            redirect to "/users/#{@deck.user.id}/decks"
+            redirect to "/users/#{current_user.id}/decks"
         end
 
     end
 
     patch  '/users/:id/decks/:deck_id' do
-    binding.pry
+        binding.pry
         @deck = Deck.find_by(:id => params[:deck_id])
         if @deck.user.id == current_user.id
             @deck.update(:title => params['title'], :category => params['category'])
@@ -44,9 +44,21 @@ class DeckController < ApplicationController
                 @deck.save
             end
         end
-            redirect "/users/#{@deck.user.id}/decks"
+            redirect "/users/#{current_user.id}/decks"
     end
 
+    delete '/users/:id/decks/:deck_id/delete' do
+        binding.pry
+        if is_logged_in? && current_user.id == params[:id].to_i
+            @deck = Deck.find_by(:id => params[:deck_id])
+            binding.pry
+            @deck.cards.delete_all()
+            @deck.delete
+            redirect to "/users/#{current_user.id}/decks/#{@deck.id}/cards"
+        else
+            redirect to "/users/#{current_user.id}"
+       end
+    end
     #delete deck
 
 end

@@ -63,5 +63,5 @@ class CardController < ApplicationController
             redirect to "/users/#{current_user.id}"
        end
     end
-     #delete card
+    
 end

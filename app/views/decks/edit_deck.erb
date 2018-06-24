@@ -10,5 +10,9 @@
     <br>
     <input type="submit" name="Edit" value="Edit">
 </form>
+<form action="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/delete" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete">
+</form>
 
 <a href="/users/<%=@deck.user.id%>/decks">Return to your decks</a>
