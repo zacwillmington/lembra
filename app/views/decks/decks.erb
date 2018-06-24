@@ -3,17 +3,17 @@
 <div class="wrapper">
         <%current_user.decks.each_with_index do |deck, index|%>
         <div class="deck">
-            <p><%=index + 1%></p>
-                <p>Title: <%=deck.title%></p>
-                <p>Category: <%=deck.category%></p>
+            <strong class="card-info"><%=index + 1%></strong>
+                <strong class="card-info">Title: <%=deck.title%></strong>
+                <strong class="card-info">Category: <%=deck.category%></strong>
                 <%if number_of_cards_in_deck(deck) == nil%>
-                    <p>Contains: 0 cards</p>
+                    <strong class="card-info">Contains: 0 cards</strong>
                 <%elsif number_of_cards_in_deck(deck) == 1%>
-                    <p>Contains: 1 card</p>
+                    <strong class="card-info">Contains: 1 card</strong>
                 <%else%>
-                    <p>Contains: <%=number_of_cards_in_deck(deck)%> cards</p>
+                    <strong class="card-info">Contains: <%=number_of_cards_in_deck(deck)%> cards</strong>
                 <%end%>
-                <p>Cards learnt: <%=calculate_learnt_cards(deck)%></p>
+                <strong class="card-info">Cards learnt: <%=calculate_learnt_cards(deck)%></strong>
                 <a class="anchor-link" href="/users/<%=current_user.id%>/decks/<%=deck.id%>">View Deck</a>
                 </div>
                 <br>
