@@ -127,19 +127,14 @@ flex-direction: column;
 margin: auto;
 }
 
-.deck{
+.deck {
     background-color: #3f3f3f;
-    /* border: 3px solid #07c17a; */
     border-radius: 3px;
     max-width: 750px;
     max-height: 100px;
-    padding-left: 20px;
-    padding-top: 10px;
-    padding: 10px 20px 10px 20px;
+    padding: 20px 20px 20px 20px;
     margin: auto;
-    display: inline-block;
 }
-
 
 .acc-create-deck {
     text-align: center;
@@ -158,6 +153,7 @@ margin: auto;
     /* border: 3px solid #07c17a; */
     border-radius: 3px;
     max-width: 750px;
+    max-height: 100px;
     padding: 20px 20px 20px 20px;
     margin: auto;
 }
@@ -175,5 +171,38 @@ strong.deck-info {
     margin-right: 20px;
     padding-right: 20px;
     border-right: 1px solid grey;
+
+}
+
+/***** ACCOUNT SETTINGS PAGE ******/
+
+
+.account-settings {
+    margin: auto;
+}
+
+form.account-delete-button, input{
+    background-color: #07c17a;
+    border: none;
+    border-radius: 3px;
+    height: 30px;
+    width: 100px;
+    font-family: 'Exo', sans-serif;
+}
+
+input[value='Delete Account']{
+    font-family: 'Exo', sans-serif;
+    color: white;
+}
+
+input[type=password]{
+    background-color: #232323;
+    border: 1px solid #666768;
+    color: white;
+}
+
+input[value='Change Password'] {
+    color: white;
+    font-family: 'Exo', sans-serif;
 
 }

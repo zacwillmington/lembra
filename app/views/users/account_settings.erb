@@ -1,12 +1,12 @@
-
-<form action="/users/<%=current_user.id%>" method="post">
-    <label for="password">New Password</label>
-    <input type="password" name="password">
-    <input type="submit" value="Change Password">
-</form>
-<br>
-<form action="/users/<%=current_user.id%>/delete" method="post">
-  <label for="hidden">Delete Account</label>
-  <input id="hidden" type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete">
-</form>
+<div class="account-settings">
+    <form class="edit-setting-button" action="/users/<%=current_user.id%>" method="post">
+        <label for="password">New Password</label>
+        <input type="password" name="password">
+        <input type="submit" value="Change Password">
+    </form>
+    <br>
+    <form class="account-delete-button" action="/users/<%=current_user.id%>/delete" method="post">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete Account">
+    </form>
+</div>
