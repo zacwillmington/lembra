@@ -24,8 +24,10 @@ class CardController < ApplicationController
     end
 
     get '/users/:id/decks/:deck_id/cards/:card_id' do
-        @card = Card.find_by(:id => params[:id])
+        binding.pry
+        @card = Card.find_by(:id => params[:card_id])
         @deck = Deck.find_by(:id => params[:deck_id])
+        binding.pry
         erb :'/cards/show_card'
     end
 
@@ -42,10 +44,13 @@ class CardController < ApplicationController
     patch '/users/:id/decks/:deck_id/cards/:card_id' do
         @card = Card.find_by(:id => params[:card_id])
         @deck = Deck.find_by(:id => params[:deck_id])
+        binding.pry
         if @deck.user.id == current_user.id
+            binding.pry
             @card.update(:front_side => params['front_side'], :back_side => params['back_side'])
             if @card.valid?
                 @card.save
+                binding.pry
             end
             redirect to "/users/#{current_user.id}/decks/#{@deck.id}/cards/#{@card.id}"
         else
@@ -63,5 +68,5 @@ class CardController < ApplicationController
             redirect to "/users/#{current_user.id}"
        end
     end
-    
+
 end
