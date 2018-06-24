@@ -6,25 +6,17 @@ body{
     font-family: 'Exo', sans-serif;
 }
 
- h1, h2, p, label, a {
+ h1, h2, label {
      color: #e3e8e3;
  }
 h1, h2 {
     text-align: center;
 }
- a {
-     text-decoration: none;
- }
 
  ul {
      list-style-type: none;
  }
 
- form {
-     max-width: 400px;
-     margin: auto;
-     height: 300px;
- }
 
  input, textarea {
    border-radius: 3px;
@@ -39,10 +31,21 @@ h1, h2 {
       margin: auto;
  }
 
- .anchor-link {
+ a.anchor-link {
      background-color: #07c17a;
      border-radius: 3px;
      padding: 5px 5px 5px 5px;
+     display: inline;
+     text-decoration: none;
+     color: #e3e8e3;
+     margin: 10px auto;
+
+ }
+
+ form.delete-button{
+     border: none;
+     width: 100px;
+     height: 50px;
  }
 /***** LAYOUT PAGE ******/
 
@@ -72,6 +75,7 @@ h2.home-title {
      height: 50px;
      width: 280px;
      margin: auto;
+
 }
 
 .signup-link {
@@ -100,27 +104,46 @@ h1.login {
     text-align: center;
 }
 
-/***** SHOW DECK PAGE ******/
+/***** DECKS PAGE ******/
 .wrapper {
-    display: flex;
-    margin: 50px auto;
+flex-direction: column;
+margin: auto;
 }
-.card{
+
+.deck{
     background-color: #3f3f3f;
     /* border: 3px solid #07c17a; */
     border-radius: 3px;
-    width: 300px;
+    width: 100%;
     height: 250px;
     padding-left: 20px;
     padding-top: 10px;
     padding: 10px 20px 10px 20px;
-    margin-left: 15px;
+    margin: auto;
+    display: inline-block;
 }
 
-.delete-button{
-    border: none;
-}
 
 .acc-create-deck {
     text-align: center;
+}
+
+/***** SHOW DECK PAGE ******/
+
+
+
+/***** SHOW CARDS PAGE ******/
+
+.card{
+    background-color: #3f3f3f;
+    /* border: 3px solid #07c17a; */
+    border-radius: 3px;
+    width: 100%;
+    padding: 10px 20px 10px 20px;
+}
+
+strong.card-info {
+    color: white;
+    margin-right: 20px;
+
 }

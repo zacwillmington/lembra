@@ -2,7 +2,7 @@
 <h2>Your Decks</h2>
 <div class="wrapper">
         <%current_user.decks.each_with_index do |deck, index|%>
-        <div class="card">
+        <div class="deck">
             <p><%=index + 1%></p>
                 <p>Title: <%=deck.title%></p>
                 <p>Category: <%=deck.category%></p>

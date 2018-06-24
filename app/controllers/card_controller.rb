@@ -44,13 +44,10 @@ class CardController < ApplicationController
     patch '/users/:id/decks/:deck_id/cards/:card_id' do
         @card = Card.find_by(:id => params[:card_id])
         @deck = Deck.find_by(:id => params[:deck_id])
-        binding.pry
         if @deck.user.id == current_user.id
-            binding.pry
             @card.update(:front_side => params['front_side'], :back_side => params['back_side'])
             if @card.valid?
                 @card.save
-                binding.pry
             end
             redirect to "/users/#{current_user.id}/decks/#{@deck.id}/cards/#{@card.id}"
         else

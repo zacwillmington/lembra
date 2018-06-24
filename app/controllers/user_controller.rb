@@ -82,11 +82,12 @@
 
      delete '/users/:id/delete' do
          if is_logged_in? && current_user.id == params[:id].to_i
-
-             deck_ids = current_user.decks.map{|deck| deck.id}
-             cards = Card.where(:deck_id => deck_ids)
-             Card.delete(cards.ids)
-             Deck.delete(deck_ids)
+             if !current_user.decks.empty?
+                 deck_ids = current_user.decks.map{|deck| deck.id}
+                cards = Card.where(:deck_id => deck_ids)
+                Card.delete(cards.ids)
+                Deck.delete(deck_ids)
+             end
              User.delete(current_user.id)
              session.clear
              redirect to '/signup'

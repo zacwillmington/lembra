@@ -1,23 +1,25 @@
 
 <h1>Title: <%=@deck.title%></h1>
 <h2>Category: <%=@deck.category%></h2>
-<%@deck.cards.each_with_index do |card, index|%>
-<div class="card">
-    <p><%=index + 1%></p>
-    <p>Front: <%=card.front_side%></p>
-    <p>Back: <%=card.back_side%></p>
-    <p><%=card.learnt%></p>
-    <a href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/<%=card.id%>/edit">Edit card</a>
-    <form action="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/<%=card.id%>/delete" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="Delete">
-    </form>
+<div class="wrapper">
+    <%@deck.cards.each_with_index do |card, index|%>
+    <div class="card">
+        <strong class="card-info"><%=index + 1%></strong>
+        <strong class="card-info">Front: <%=card.front_side%></strong>
+        <strong class="card-info">Back: <%=card.back_side%></strong>
+        <strong class="card-info"><%=card.learnt%></strong>
+        <a href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/<%=card.id%>/edit">Edit card</a>
+        <form class="delete-button" action="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/<%=card.id%>/delete" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="Delete">
+        </form>
+    </div>
+        <br>
+    <%end%>
 </div>
-    <br>
-<%end%>
 <br>
-<a href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/new">Add Card<a>
+<a class="anchor-link" href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/new">Add Card<a>
 <br>
-<a href="/users/<%=@deck.user.id%>/decks">Return to decks</a>
+<a class="anchor-link" href="/users/<%=@deck.user.id%>/decks">Return to decks</a>
 <br>
-<a href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/edit">Edit deck Title or category</a>
+<a class="anchor-link" href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/edit">Edit deck Title or category</a>
