@@ -11,9 +11,13 @@ class DeckController < ApplicationController
 
     post '/users/:id/decks' do
          @deck = Deck.create(:title => params['title'], :category => params['category'])
-         current_user.decks << @deck
-         current_user.save
-        redirect to "/users/#{@deck.user.id}/decks/#{@deck.id}"
+         if @deck.valid?
+             current_user.decks << @deck
+             current_user.save
+            redirect to "/users/#{@deck.user.id}/decks/#{@deck.id}"
+        else
+            redirect to "/users/#{current_user.id}/decks"
+        end
     end
 
     get '/users/:id/decks/:deck_id' do
@@ -32,15 +36,15 @@ class DeckController < ApplicationController
     end
 
     patch  '/users/:id/decks/:deck_id' do
+    binding.pry
         @deck = Deck.find_by(:id => params[:deck_id])
         if @deck.user.id == current_user.id
-            @deck.title = params['title']
-            @deck.category = params['category']
-            @deck.save
-            redirect to "/users/#{@deck.user.id}/decks/#{@deck.id}"
-        else
-            redirect "/users/#{@deck.user.id}/decks"
+            @deck.update(:title => params['title'], :category => params['category'])
+            if @deck.valid?
+                @deck.save
+            end
         end
+            redirect "/users/#{@deck.user.id}/decks"
     end
 
     #delete deck
