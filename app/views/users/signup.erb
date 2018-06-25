@@ -1,4 +1,13 @@
 <h1 class="signup">Sign Up</h1>
+    <%if flash[:message]%>
+        <div class="errors">
+            <ul>
+            <%flash[:message].each do |error, message|%>
+                <li><%=error.capitalize%>: <%=message[0]%></li>
+            <%end%>
+            </ul>
+        <%end%>
+    </div>
 <div class="form-style">
     <form action="/signup" method="post">
         <label for="username">Username</label>

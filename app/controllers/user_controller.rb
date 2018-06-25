@@ -1,9 +1,13 @@
+require 'sinatra/base'
+require 'rack-flash'
+
  class UserController < ApplicationController
 
      configure do
        enable :sessions
        set :session_secret, "secret"
      end
+     use Rack::Flash
 
      get '/signup' do
          if is_logged_in?
@@ -13,22 +17,22 @@
          end
      end
 
+     get '/flash' do
+         binding.pry
+         flash[:notice] = "Flash Working."
+     end
+
      post '/signup' do
           if is_logged_in?
               redirect to "/users/#{current_user.id}"
           else
-              binding.pry
             @user = User.new(:username => params['username'], :email => params['email'], :password => params['password'])
-            binding.pry
             if @user.valid? && @user.present?
                 @user.save
                 session[:id] = @user.id
                 redirect to "/users/#{current_user.id}"
             else
-                binding.pry
-                render template "errors.erb"
-                binding.pry
-                @user.errors.messages
+                flash[:message] = @user.errors.messages
                 redirect to '/signup'
             end
         end
@@ -48,6 +52,8 @@
             session[:id] = @user.id
             redirect to "/users/#{current_user.id}"
         else
+            binding.pry
+            flash[:message] = @user.errors.messages
             redirect to '/login'
         end
      end

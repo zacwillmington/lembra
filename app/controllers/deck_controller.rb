@@ -10,7 +10,7 @@ class DeckController < ApplicationController
     end
 
     post '/users/:id/decks' do
-         @deck = Deck.create(:title => params['title'], :category => params['category'])
+         @deck = Deck.new(:title => params['title'], :category => params['category'])
          if @deck.valid?
              current_user.decks << @deck
              current_user.save

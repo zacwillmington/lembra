@@ -16,12 +16,18 @@ class CardController < ApplicationController
 
     post '/users/:id/decks/:deck_id/cards' do
         @deck = Deck.find_by(:id => params[:deck_id])
-        @card = Card.create(:front_side => params['front_side'], :back_side => params['back_side'])
-        
-        @deck.cards << @card
-        @deck.number_of_cards = @deck.cards.all.size
-        @deck.save
-        redirect to "/users/#{@deck.user.id}/decks/#{@deck.id}/cards"
+        @card = Card.new(:front_side => params['front_side'], :back_side => params['back_side'])
+        if @card.valid?
+            @card.save
+            @deck.cards << @card
+            @deck.number_of_cards = @deck.cards.all.size
+            @deck.save
+            redirect to "/users/#{@deck.user.id}/decks/#{@deck.id}/cards"
+        else
+            binding.pry
+            flash[:message] = @card.errors.messages
+            redirect to "/users/#{@deck.user.id}/decks/#{@deck.id}/cards/new"
+        end
     end
 
     get '/users/:id/decks/:deck_id/cards/:card_id' do

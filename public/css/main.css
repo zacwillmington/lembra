@@ -22,7 +22,6 @@ h1, h2 {
      list-style-type: none;
  }
 
-
  input, textarea {
    border-radius: 3px;
    background-color: #232323;
@@ -127,6 +126,11 @@ h1.signup {
     border-right: 1px solid grey;
 
 }
+
+div.errors ul li {
+    color: white;
+}
+
 
 /***** LOGIN PAGE ******/
 
