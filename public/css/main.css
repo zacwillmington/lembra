@@ -22,6 +22,10 @@ h1, h2 {
      list-style-type: none;
  }
 
+ ul li {
+     display: inline;
+ }
+
  input, textarea {
    border-radius: 3px;
    background-color: #232323;
@@ -42,9 +46,7 @@ h1, h2 {
      display: inline;
      text-decoration: none;
      color: #e3e8e3;
-     margin: auto;
-
-
+     margin: 50px auto;
  }
 
  .anchor-link:hover{
