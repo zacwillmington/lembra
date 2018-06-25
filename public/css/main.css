@@ -160,7 +160,9 @@ margin: auto;
     text-align: center;
     margin: 100px auto;
 }
-
+ .errors {
+     color: white;
+ }
 /***** SHOW DECK PAGE ******/
 
 

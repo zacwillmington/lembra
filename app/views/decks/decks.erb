@@ -1,6 +1,15 @@
 <h1><%=current_user.username%></h1>
 <h2>Your Decks</h2>
 <div class="wrapper">
+    <%if flash[:message]%>
+        <div class="errors">
+            <ul>
+            <%flash[:message].each do |error, message|%>
+                <li><%=error.capitalize%>: <%=message[0]%></li>
+            <%end%>
+            </ul>
+        </div>
+    <%end%>
         <%current_user.decks.each_with_index do |deck, index|%>
         <div class="deck">
             <strong class="card-info"><%=index + 1%></strong>

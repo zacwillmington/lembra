@@ -17,11 +17,6 @@ require 'rack-flash'
          end
      end
 
-     get '/flash' do
-         binding.pry
-         flash[:notice] = "Flash Working."
-     end
-
      post '/signup' do
           if is_logged_in?
               redirect to "/users/#{current_user.id}"
@@ -52,7 +47,6 @@ require 'rack-flash'
             session[:id] = @user.id
             redirect to "/users/#{current_user.id}"
         else
-            binding.pry
             flash[:message] = @user.errors.messages
             redirect to '/login'
         end
@@ -76,6 +70,8 @@ require 'rack-flash'
          if is_logged_in? && current_user.id == params[:id].to_i
              erb :'users/account_settings'
          else
+             @user = User.find(params[:id])
+             flash[:message] = "Only #{@user.username} is able to edit their account information."
              redirect to '/login'
          end
      end
@@ -88,6 +84,8 @@ require 'rack-flash'
              end
              redirect to "/users/#{current_user.id}"
         else
+            @user = User.find(params[:id])
+            flash[:message] = "Only #{@user.username} is able to edit their account information."
             redirect to "/users/#{current_user.id}/decks"
         end
      end
@@ -104,7 +102,9 @@ require 'rack-flash'
              session.clear
              redirect to '/signup'
          else
-             redirect to "/users/#{current_user.id}"
+             @user = User.find(params[:id])
+             flash[:message] = "Only #{@user.username} is able to edit their account information."
+             redirect to "/users/#{current_user.id}/decks"
         end
 
      end
