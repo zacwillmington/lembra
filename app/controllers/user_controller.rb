@@ -17,11 +17,17 @@
           if is_logged_in?
               redirect to "/users/#{current_user.id}"
           else
-            @user = User.create(:username => params['username'], :email => params['email'], :password => params['password'])
-            if @user.valid?
+              binding.pry
+            @user = User.new(:username => params['username'], :email => params['email'], :password => params['password'])
+            binding.pry
+            if @user.valid? && @user.present?
+                @user.save
                 session[:id] = @user.id
                 redirect to "/users/#{current_user.id}"
             else
+                binding.pry
+                render template "errors.erb"
+                binding.pry
                 @user.errors.messages
                 redirect to '/signup'
             end

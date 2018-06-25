@@ -1,5 +1,5 @@
 <div class="account-settings">
-    <form class="edit-setting-button" action="/users/<%=current_user.id%>" method="post">
+    <form id="edit-setting-button" action="/users/<%=current_user.id%>" method="post">
         <label for="password">New Password</label>
         <input type="password" name="password">
         <input type="submit" value="Change Password">

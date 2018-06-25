@@ -17,8 +17,9 @@ class CardController < ApplicationController
     post '/users/:id/decks/:deck_id/cards' do
         @deck = Deck.find_by(:id => params[:deck_id])
         @card = Card.create(:front_side => params['front_side'], :back_side => params['back_side'])
+        
         @deck.cards << @card
-        # @deck.number_of_cards = @deck.cards.all.size
+        @deck.number_of_cards = @deck.cards.all.size
         @deck.save
         redirect to "/users/#{@deck.user.id}/decks/#{@deck.id}/cards"
     end

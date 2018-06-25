@@ -45,9 +45,14 @@ h1, h2 {
      color: #e3e8e3;
      margin: auto;
 
+
  }
 
- form.delete-button{
+ .anchor-link:hover{
+     background: #70e5cd;
+ }
+
+ .delete-button{
      border: none;
      width: 100px;
      height: 100px;
@@ -55,7 +60,7 @@ h1, h2 {
      float: right;
  }
 
-form.delete-button, input{
+.delete-button, input{
     background-color: #07c17a;
     border: none;
     border-radius: 3px;
@@ -92,7 +97,7 @@ h2.home-title {
      height: 50px;
      width: 280px;
      margin: auto;
-
+     color: white;
 }
 
 .signup-link {
@@ -100,6 +105,7 @@ h2.home-title {
      padding-top: 10px;
      padding-right: 20px;
      font-size: 1.2em;
+     text-decoration: none;
 }
 
 .login-link {
@@ -109,11 +115,19 @@ h2.home-title {
     font-size: 1.2em;
 }
 
+
 /***** SIGNUP PAGE ******/
 
 h1.signup {
     text-align: center;
 }
+
+#email {
+    background-color: #232323;
+    border-right: 1px solid grey;
+
+}
+
 /***** LOGIN PAGE ******/
 
 
@@ -174,14 +188,26 @@ strong.deck-info {
 
 }
 
+.delete-button{
+    border: none;
+    width: 75px;
+    height: 100px;
+    display: inline;
+    float: right;
+}
+
+.delete-button, input{
+   background-color: #07c17a;
+   border: none;
+   border-radius: 3px;
+   height: 30px;
+   width: 75px;
+   font-family: 'Exo', sans-serif;
+}
 /***** ACCOUNT SETTINGS PAGE ******/
 
 
-.account-settings {
-    margin: auto;
-}
-
-form.account-delete-button, input{
+.account-delete-button {
     background-color: #07c17a;
     border: none;
     border-radius: 3px;
@@ -198,7 +224,6 @@ input[value='Delete Account']{
 input[type=password]{
     background-color: #232323;
     border: 1px solid #666768;
-    color: white;
 }
 
 input[value='Change Password'] {
