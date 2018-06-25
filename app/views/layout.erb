@@ -12,7 +12,15 @@
                 <a class="anchor-link" href="/logout">Logout</a>
             </nav>
         </header>
-
+        <%if flash[:message]%>
+            <div class="errors">
+                <ul>
+                <%flash[:message].each do |error, message|%>
+                    <li><%=error.capitalize.to_s.gsub("_", " ")%>: <%=message[0]%></li>
+                <%end%>
+                </ul>
+            </div>
+        <%end%>
           <%= yield %>
     </body>
 </html>

@@ -1,12 +1,4 @@
-<%if flash[:message]%>
-    <div class="errors">
-        <ul>
-        <%flash[:message].each do |error, message|%>
-            <li><%=error.capitalize.to_s.gsub("_", " ")%>: <%=message[0]%></li>
-        <%end%>
-        </ul>
-    <%end%>
-</div>
+
 <form action="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards" method="post">
     <label for="front_side">Front Side</label>
     <input type="text" name="front_side">
@@ -14,5 +6,5 @@
     <label for="back_side_of_card">Back Side</label>
     <input type="text" name="back_side">
     <br>
-    <input type="submit" name="Create" value="submit">
+    <input type="submit" name="Create" value="Create">
 </form>

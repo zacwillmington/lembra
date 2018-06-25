@@ -24,17 +24,14 @@ class CardController < ApplicationController
             @deck.save
             redirect to "/users/#{@deck.user.id}/decks/#{@deck.id}/cards"
         else
-            binding.pry
             flash[:message] = @card.errors.messages
             redirect to "/users/#{@deck.user.id}/decks/#{@deck.id}/cards/new"
         end
     end
 
     get '/users/:id/decks/:deck_id/cards/:card_id' do
-        binding.pry
         @card = Card.find_by(:id => params[:card_id])
         @deck = Deck.find_by(:id => params[:deck_id])
-        binding.pry
         erb :'/cards/show_card'
     end
 

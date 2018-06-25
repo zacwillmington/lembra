@@ -1,18 +1,10 @@
 <h1><%=current_user.username%></h1>
 <h2>Your Decks</h2>
 <div class="wrapper">
-    <%if flash[:message]%>
-        <div class="errors">
-            <ul>
-            <%flash[:message].each do |error, message|%>
-                <li><%=error.capitalize%>: <%=message[0]%></li>
-            <%end%>
-            </ul>
-        </div>
-    <%end%>
         <%current_user.decks.each_with_index do |deck, index|%>
         <div class="deck">
-            <strong class="card-info"><%=index + 1%></strong>
+            <div class="deck-container">
+                <strong class="card-info"><%=index + 1%></strong>
                 <strong class="card-info">Title: <%=deck.title%></strong>
                 <strong class="card-info">Category: <%=deck.category%></strong>
                 <%if number_of_cards_in_deck(deck) == nil%>
@@ -22,10 +14,11 @@
                 <%else%>
                     <strong class="card-info">Contains: <%=number_of_cards_in_deck(deck)%> cards</strong>
                 <%end%>
-                <strong class="card-info">Cards learnt: <%=calculate_learnt_cards(deck)%></strong>
-                <a class="anchor-link" href="/users/<%=current_user.id%>/decks/<%=deck.id%>">View Deck</a>
+                    <strong class="card-info">Cards learnt: <%=calculate_learnt_cards(deck)%></strong>
+                    <a class="anchor-link" href="/users/<%=current_user.id%>/decks/<%=deck.id%>">View Deck</a>
                 </div>
-                <br>
+        </div>
+        <br>
         <%end%>
 </div>
 <div class="acc-create-deck">
