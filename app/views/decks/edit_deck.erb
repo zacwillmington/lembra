@@ -1,3 +1,13 @@
+<%if flash[:message]%>
+    <div class="errors">
+        <ul>
+        <%flash[:message].each do |error, message|%>
+            <li><%=error.capitalize%>: <%=message[0]%></li>
+        <%end%>
+        </ul>
+    </div>
+<%end%>
+
 <form role="form" action="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>" method="post">
     <input type="hidden" name="_method" value="patch">
     <h3><%=@deck.title%></h3>

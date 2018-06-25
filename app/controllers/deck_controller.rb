@@ -40,14 +40,13 @@ class DeckController < ApplicationController
             erb :'/decks/edit_deck'
         else
             @user = User.find(params[:id])
-            flash[:message] = {:error => "You are unable to edit this deck."}
+            flash[:message] = {:error => ["You are unable to edit this deck."]}
             redirect to "/users/#{current_user.id}/decks"
         end
 
     end
 
     patch  '/users/:id/decks/:deck_id' do
-        binding.pry
         @deck = Deck.find_by(:id => params[:deck_id])
         if @deck.user.id == current_user.id
             @deck.update(:title => params['title'], :category => params['category'])
@@ -56,14 +55,14 @@ class DeckController < ApplicationController
             else
                 binding.pry
                 flash[:message] = @deck.errors.messages
-                redirect to "/users/#{current_user.id}/decks"
+                redirect to "/users/#{current_user.id}/decks/#{@deck.id}/edit"
             end
         end
             redirect "/users/#{current_user.id}/decks"
     end
 
     delete '/users/:id/decks/:deck_id/delete' do
-        binding.pry
+
         if is_logged_in? && current_user.id == params[:id].to_i
             @deck = Deck.find_by(:id => params[:deck_id])
             binding.pry
@@ -71,7 +70,9 @@ class DeckController < ApplicationController
             @deck.delete
             redirect to "/users/#{current_user.id}/decks/#{@deck.id}/cards"
         else
-            redirect to "/users/#{current_user.id}"
+            binding.pry
+            flash[:message] = {:error => "You are unable to delete this deck."}
+            redirect to "/users/#{current_user.id}/decks"
        end
     end
     #delete deck
