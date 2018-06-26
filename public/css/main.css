@@ -323,6 +323,15 @@ input#title, input#category{
       background-color: #70e5cd;
  }
 
+ div.edit-deck .anchor-link {
+     text-align: center;
+     display: block;
+     width: 196px;
+     border: none;
+     height: 26px;
+     margin: 5px auto;
+ }
+
 
 /***** SHOW CARDS PAGE/SHOW DECK PAGE ******/
 
@@ -368,6 +377,93 @@ strong.deck-info {
    width: 75px;
    font-family: 'Exo', sans-serif;
 }
+
+/***** CREATE CARD PAGE ******/
+
+.create-card h3 {
+    text-align: left;
+}
+
+.create-card {
+    width: 100%;
+    margin: auto;
+}
+
+.create-card form {
+    margin: 0 auto;
+    width: 206px;
+}
+
+input#front_side, input#back_side {
+    margin-bottom: 10px;
+    background-color: #232323;
+    width: 200px;
+    height: 30px;
+    font-size: 1em;
+}
+
+ input[value='Create'] {
+     background-color: #07c17a;
+     border: none;
+     color: white;
+     width: 206px;
+     height: 36px;
+     font-size: 1em;
+     margin: 5px 0;
+
+ }
+
+ input[value='Create']:hover {
+      background-color: #70e5cd;
+ }
+
+ /***** CREATE CARD PAGE ******/
+
+ .edit-card h3 {
+     text-align: left;
+ }
+
+ .edit-card {
+     width: 100%;
+     margin: auto;
+ }
+
+ .edit-card form {
+     margin: 0 auto;
+     width: 206px;
+ }
+
+ input#front_side, input#back_side {
+     margin-bottom: 10px;
+     background-color: #232323;
+     width: 200px;
+     height: 30px;
+     font-size: 1em;
+ }
+
+  input[value='Edit'] {
+      background-color: #07c17a;
+      border: none;
+      color: white;
+      width: 206px;
+      height: 36px;
+      font-size: 1em;
+      margin: 5px 0;
+
+  }
+
+  input[value='Edit']:hover {
+       background-color: #70e5cd;
+  }
+
+  div.edit-card .anchor-link {
+      text-align: center;
+      display: block;
+      width: 196px;
+      border: none;
+      height: 26px;
+      margin: auto;
+  }
 
 /***** ACCOUNT SETTINGS PAGE ******/
 

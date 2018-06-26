@@ -1,10 +1,10 @@
-
-<form action="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards" method="post">
-    <label for="front_side">Front Side</label>
-    <input type="text" name="front_side">
-    <br>
-    <label for="back_side_of_card">Back Side</label>
-    <input type="text" name="back_side">
-    <br>
-    <input type="submit" name="Create" value="Create">
-</form>
+<h1>Create Card</h1>
+<div class="create-card">
+    <form action="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards" method="post">
+        <label for="front_side">Front Side</label>
+        <input id="front_side" type="text" name="front_side">
+        <label for="back_side">Back Side</label>
+        <input id="back_side" type="text" name="back_side">
+        <input type="submit" name="Create" value="Create">
+    </form>
+</div>

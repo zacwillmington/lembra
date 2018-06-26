@@ -1,13 +1,15 @@
-<form role="form" action="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/<%=@card.id%>" method="post">
-    <input type="hidden" name="_method" value="patch">
-    <h3><%=@deck.title%></h3>
-    <label for="front_side">Front Side</label>
-    <input id="front_side" type="text" name="front_side">
-    <br>
-    <label for="back_side">Back Side</label>
-    <input id="back_side" type="text" name="back_side">
-    <br>
-    <input type="submit" name="Edit" value="Edit">
-</form>
 
-<a class="anchor-link" href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>">Return to deck</a>
+<h1>Edit Card</h1>
+<div class="edit-card">
+    <form role="form" action="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/<%=@card.id%>" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <h3><%=@deck.title%></h3>
+        <label for="front_side">Front Side</label>
+        <input id="front_side" type="text" name="front_side">
+        <label for="back_side">Back Side</label>
+        <input id="back_side" type="text" name="back_side">
+        <input type="submit" name="Edit" value="Edit">
+    </form>
+
+    <a class="anchor-link" href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>">Return to deck</a>
+    </div>
