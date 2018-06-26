@@ -164,10 +164,6 @@ div.errors ul li {
     padding: 50px;
 }
 
-input#username, input#email{
-    margin-bottom: 10px;
-    background-color: #232323;
-}
 
  input[value='Signup']{
      background-color: #07c17a;
@@ -249,6 +245,84 @@ input[value='Login']:hover {
  .errors {
      color: white;
  }
+
+ /***** CREATE DECK PAGE ******/
+
+ .create-deck {
+     width: 100%;
+     margin: auto;
+ }
+
+ .create-deck form {
+     margin: 0 auto;
+     width: 206px;
+     padding: 50px;
+ }
+
+ input#title, input#category{
+     margin-bottom: 10px;
+     background-color: #232323;
+     width: 200px;
+     height: 30px;
+     font-size: 1em;
+ }
+
+  input[value='Create']{
+      background-color: #07c17a;
+      border: none;
+      color: white;
+      width: 206px;
+      height: 36px;
+      font-size: 1em;
+
+  }
+  input[value='Create']:hover {
+       background-color: #70e5cd;
+  }
+
+
+/***** EDIT DECK PAGE ******/
+
+.edit-deck h3 {
+    text-align: left;
+}
+
+.edit-deck {
+    width: 100%;
+    margin: auto;
+}
+
+.edit-deck form {
+    margin: 0 auto;
+    width: 206px;
+}
+
+input#title, input#category{
+    margin-bottom: 10px;
+    background-color: #232323;
+    width: 200px;
+    height: 30px;
+    font-size: 1em;
+}
+
+ input[value='Edit'], input[value='Delete']{
+     background-color: #07c17a;
+     border: none;
+     color: white;
+     width: 206px;
+     height: 36px;
+     font-size: 1em;
+     margin: 5px 0;
+
+ }
+ input[value='Edit']:hover {
+      background-color: #70e5cd;
+ }
+
+ input[value='Delete']:hover {
+      background-color: #70e5cd;
+ }
+
 
 /***** SHOW CARDS PAGE/SHOW DECK PAGE ******/
 
