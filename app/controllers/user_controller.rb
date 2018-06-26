@@ -34,6 +34,7 @@ require 'rack-flash'
      end
 
      get '/login' do
+         binding.pry
          if is_logged_in?
              redirect to "/users/#{current_user.id}"
          else
@@ -47,7 +48,7 @@ require 'rack-flash'
             session[:id] = @user.id
             redirect to "/users/#{current_user.id}"
         else
-            flash[:message] = @user.errors.messages
+            flash[:message] = {:error => ["Looks like you don't have an account. Try signing up."]}
             redirect to '/login'
         end
      end
