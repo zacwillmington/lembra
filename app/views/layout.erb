@@ -8,8 +8,14 @@
     </head>
     <body>
         <header role="header">
-                <a class="anchor-link" href="/">Home</a>
-                <a class="anchor-link" href="/logout">Logout</a>
+            <nav class="nav">
+            <%if current_user%>
+                    <a class="anchor-link" href="/">Home</a>
+                    <a class="anchor-link" href="/logout">Logout</a>
+            <%else%>
+                <a class="anchor-link" href="/login">Login</a>
+                <a class="anchor-link" href="/signup">Signup</a>
+            <%end%>
             </nav>
         </header>
         <%if flash[:message]%>
