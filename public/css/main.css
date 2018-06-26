@@ -183,6 +183,23 @@ h1.login {
     text-align: center;
 }
 
+.login-form {
+    width: 100%;
+    margin: auto;
+}
+
+.login-form form {
+    margin: 0 auto;
+    width: 150px;
+    padding: 50px;
+}
+
+input[value='Login']{
+    background-color: #07c17a;
+    border: none;
+    color: white;
+
+}
 /***** DECKS PAGE ******/
 .wrapper {
     flex-direction: column;
