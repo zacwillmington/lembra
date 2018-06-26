@@ -34,12 +34,13 @@
    border-radius: 3px;
    background-color: #232323;
    border: 2px solid #d1d1d1;
-   color: white;
+   color: #07c17a;
  }
 
  .form-style {
      border: 2px solid grey;
      width: 400px;
+     width: 100px;
      border-radius: 3px;
      margin: auto;
  }
@@ -159,7 +160,7 @@ div.errors ul li {
 
 .signup-form form {
     margin: 0 auto;
-    width: 150px;
+    width: 206px;
     padding: 50px;
 }
 
@@ -173,6 +174,19 @@ input#username, input#email{
      border: none;
      color: white;
 
+ }
+
+ input[value='Signup']{
+     background-color: #07c17a;
+     border: none;
+     color: white;
+     width: 206px;
+     height: 36px;
+     font-size: 1em;
+
+ }
+ input[value='Signup']:hover {
+      background-color: #70e5cd;
  }
 
 
@@ -190,15 +204,29 @@ h1.login {
 
 .login-form form {
     margin: 0 auto;
-    width: 150px;
+    width: 206px;
     padding: 50px;
+}
+
+input#username, input#email, input#password{
+    margin-bottom: 10px;
+    background-color: #232323;
+    width: 200px;
+    height: 30px;
+    font-size: 1em;
 }
 
 input[value='Login']{
     background-color: #07c17a;
     border: none;
     color: white;
+    width: 206px;
+    height: 36px;
+    font-size: 1em;
 
+}
+input[value='Login']:hover {
+     background-color: #70e5cd;
 }
 /***** DECKS PAGE ******/
 .wrapper {
