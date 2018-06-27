@@ -16,8 +16,9 @@ class CardController < ApplicationController
 
     post '/users/:id/decks/:deck_id/cards' do
         @deck = Deck.find_by(:id => params[:deck_id])
-        @card = Card.new(:front_side => params['front_side'], :back_side => params['back_side'])
+        @card = Card.new(:front_side => params['front_side'], :back_side => params['back_side'], :learnt => "No")
         if @card.valid?
+            binding.pry
             @card.save
             @deck.cards << @card
             @deck.number_of_cards = @deck.cards.all.size

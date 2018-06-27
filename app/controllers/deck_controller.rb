@@ -2,6 +2,7 @@ class DeckController < ApplicationController
 
 
     get '/users/:id/decks' do
+        binding.pry
         erb :'/decks/decks'
     end
 

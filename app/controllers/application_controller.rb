@@ -27,14 +27,15 @@ class ApplicationController < Sinatra::Base
           !!current_user
       end
 
-      # def self.is_params_empty?(params)
-      #     params['username'] == "" || params['email'] == "" || params['password'] == "" || params['content'] == ""
-      # end
-
       def calculate_learnt_cards(deck)
-           deck.cards.collect do |card|
-              card.learnt == true
-          end.size
+           learnt = deck.cards.find_all do |card|
+              card.learnt == "Yes"
+          end
+          if learnt.empty?
+              0
+          else
+              learnt.size
+          end
       end
 
       def number_of_cards_in_deck(deck)
