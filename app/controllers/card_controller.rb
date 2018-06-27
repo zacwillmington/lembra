@@ -40,7 +40,11 @@ class CardController < ApplicationController
         @card = Card.find_by(:id => params[:card_id])
         @deck = Deck.find_by(:id => params[:deck_id])
         next_card_id(@card.deck)
-        redirect to "/users/#{current_user.id}/decks/#{@deck.id}/cards/#{@next_id}"
+        if @next_id == nil
+            redirect to "/users/#{current_user.id}/decks/#{@deck.id}/cards/#{@deck.cards.first.id}"
+        else
+            redirect to "/users/#{current_user.id}/decks/#{@deck.id}/cards/#{@next_id}"
+        end
     end
 
     get '/users/:id/decks/:deck_id/cards/:card_id/edit' do
