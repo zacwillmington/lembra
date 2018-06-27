@@ -11,6 +11,9 @@
         <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Delete">
     </form>
+    <form class="delete-card" action="/users/<%=current_user.id%>/decks/<%=@deck.id%>/cards/<%=@card.id%>/next" method="post">
+        <input type="submit" value="Next card">
+    </form>
 </div>
 <a class="anchor-link" href="/users/<%=current_user.id%>/decks/<%=@deck.id%>/cards/<%=@card.id%>/edit">Edit</a>
-<a class="anchor-link" href="/users/<%=current_user.id%>/decks">Return to Decks</a>
+<a class="anchor-link" href="/users/<%=current_user.id%>/decks/<%=@card.deck.id%>">Return to Deck</a>

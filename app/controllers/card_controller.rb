@@ -36,6 +36,13 @@ class CardController < ApplicationController
         erb :'/cards/show_card'
     end
 
+    post '/users/:id/decks/:deck_id/cards/:card_id/next' do
+        @card = Card.find_by(:id => params[:card_id])
+        @deck = Deck.find_by(:id => params[:deck_id])
+        next_card_id(@card.deck)
+        redirect to "/users/#{current_user.id}/decks/#{@deck.id}/cards/#{@next_id}"
+    end
+
     get '/users/:id/decks/:deck_id/cards/:card_id/edit' do
         if is_logged_in? && current_user.id == params[:id].to_i
             @deck = Deck.find_by(:id => params[:deck_id])
@@ -49,14 +56,10 @@ class CardController < ApplicationController
     patch '/users/:id/decks/:deck_id/cards/:card_id' do
         @card = Card.find_by(:id => params[:card_id])
         @deck = Deck.find_by(:id => params[:deck_id])
-        binding.pry
         if @deck.user.id == current_user.id
-            binding.pry
             if params["Learnt?"] == "Learnt?"
-                binding.pry
                 @card.update(:learnt => "Yes")
                 @card.save
-                binding.pry
             else
                 @card.update(:front_side => params['front_side'], :back_side => params['back_side'])
                 if @card.valid?

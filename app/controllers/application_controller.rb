@@ -47,15 +47,15 @@ class ApplicationController < Sinatra::Base
            @card_ids = deck.cards.ids #[54, 57, 58, 59]
 
            @card_ids.each_with_index do |id, index|
-               binding.pry
                 if @current_id == id
-                @next_id = @card_ids[index + 1]
+                    @next_id = @card_ids[index + 1]
+                end
                 if @next_id == nil
                     @last_id = @current_id
-                    end
                 end
            end
-           binding.pry
        end
+
+
   end
 end
