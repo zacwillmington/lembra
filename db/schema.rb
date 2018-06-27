@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180627004854) do
+ActiveRecord::Schema.define(version: 20180627210910) do
 
   create_table "cards", force: :cascade do |t|
     t.string  "front_side"
     t.string  "back_side"
     t.integer "deck_id"
     t.string  "learnt"
+    t.boolean "flip"
   end
 
   create_table "decks", force: :cascade do |t|

@@ -510,6 +510,37 @@ input#front_side, input#back_side {
       background-color: #70e5cd;
  }
 
+ input[value='Flip'] {
+     background-color: #07c17a;
+     border: none;
+     color: white;
+     width: 206px;
+     height: 36px;
+     font-size: 1em;
+     margin: 0;
+     text-align: center;
+
+ }
+
+ input[value='Flip']:hover {
+      background-color: #70e5cd;
+ }
+
+ input[value='Hide'] {
+     background-color: #07c17a;
+     border: none;
+     color: white;
+     width: 206px;
+     height: 36px;
+     font-size: 1em;
+     margin: 5px 0 5px 0;
+     text-align: center;
+
+ }
+
+ input[value='Hide']:hover {
+      background-color: #70e5cd;
+ }
 
 /***** ACCOUNT SETTINGS PAGE ******/
 

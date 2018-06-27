@@ -31,6 +31,7 @@ class CardController < ApplicationController
     end
 
     get '/users/:id/decks/:deck_id/cards/:card_id' do
+        binding.pry
         @card = Card.find_by(:id => params[:card_id])
         @deck = Deck.find_by(:id => params[:deck_id])
         erb :'/cards/show_card'
@@ -45,6 +46,20 @@ class CardController < ApplicationController
         else
             redirect to "/users/#{current_user.id}/decks/#{@deck.id}/cards/#{@next_id}"
         end
+    end
+
+    post '/users/:id/decks/:deck_id/cards/:card_id/flip' do
+        @card = Card.find_by(:id => params[:card_id])
+        @deck = Deck.find_by(:id => params[:deck_id])
+        if params['Hide'] == 'Hide'
+            @card.update(:flip => nil)
+            @card.save
+        end
+        if params['Flip'] == 'Flip'
+            @card.update(:flip => true)
+            @card.save
+        end
+        redirect to "/users/#{current_user.id}/decks/#{@deck.id}/cards/#{@card.id}"
     end
 
     get '/users/:id/decks/:deck_id/cards/:card_id/edit' do
