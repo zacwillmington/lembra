@@ -16,9 +16,9 @@ class CardController < ApplicationController
 
     post '/users/:id/decks/:deck_id/cards' do
         @deck = Deck.find_by(:id => params[:deck_id])
+
         @card = Card.new(:front_side => params['front_side'], :back_side => params['back_side'], :learnt => "No")
         if @card.valid?
-            binding.pry
             @card.save
             @deck.cards << @card
             @deck.number_of_cards = @deck.cards.all.size
@@ -49,10 +49,19 @@ class CardController < ApplicationController
     patch '/users/:id/decks/:deck_id/cards/:card_id' do
         @card = Card.find_by(:id => params[:card_id])
         @deck = Deck.find_by(:id => params[:deck_id])
+        binding.pry
         if @deck.user.id == current_user.id
-            @card.update(:front_side => params['front_side'], :back_side => params['back_side'])
-            if @card.valid?
+            binding.pry
+            if params["Learnt?"] == "Learnt?"
+                binding.pry
+                @card.update(:learnt => "Yes")
                 @card.save
+                binding.pry
+            else
+                @card.update(:front_side => params['front_side'], :back_side => params['back_side'])
+                if @card.valid?
+                    @card.save
+                end
             end
             redirect to "/users/#{current_user.id}/decks/#{@deck.id}/cards/#{@card.id}"
         else

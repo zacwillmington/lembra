@@ -41,5 +41,21 @@ class ApplicationController < Sinatra::Base
       def number_of_cards_in_deck(deck)
           deck.cards.all.size
       end
+
+       def next_card_id(deck)
+           @current_id = params[:card_id].to_i
+           @card_ids = deck.cards.ids #[54, 57, 58, 59]
+
+           @card_ids.each_with_index do |id, index|
+               binding.pry
+                if @current_id == id
+                @next_id = @card_ids[index + 1]
+                if @next_id == nil
+                    @last_id = @current_id
+                    end
+                end
+           end
+           binding.pry
+       end
   end
 end

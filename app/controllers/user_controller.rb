@@ -1,5 +1,9 @@
 require 'sinatra/base'
 require 'rack-flash'
+#test_account
+#user_1
+#user_1email
+#password1
 
  class UserController < ApplicationController
 
@@ -34,7 +38,6 @@ require 'rack-flash'
      end
 
      get '/login' do
-         binding.pry
          if is_logged_in?
              redirect to "/users/#{current_user.id}"
          else

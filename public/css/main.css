@@ -37,6 +37,7 @@
    color: #07c17a;
  }
 
+
  .form-style {
      border: 2px solid grey;
      width: 400px;
@@ -62,9 +63,9 @@
  .delete-button{
      border: none;
      width: 100px;
-     height: 100px;
      display: inline;
      float: right;
+     padding: none;
  }
 
 .delete-button input{
@@ -312,7 +313,7 @@ input#title, input#category{
      width: 206px;
      height: 36px;
      font-size: 1em;
-     margin: 5px 0;
+     margin: auto;
 
  }
  input[value='Edit']:hover {
@@ -338,7 +339,7 @@ input#title, input#category{
 .card {
     background-color: #3f3f3f;
     border-radius: 3px;
-    max-width: 750px;
+    max-width: 80%;
     max-height: 100px;
     padding: 20px 20px 20px 20px;
     margin: auto;
@@ -364,7 +365,6 @@ strong.deck-info {
 .delete-button{
     border: none;
     width: 75px;
-    height: 100px;
     display: inline;
     float: right;
 }
@@ -464,6 +464,36 @@ input#front_side, input#back_side {
       height: 26px;
       margin: auto;
   }
+
+ /***** SHOW CARD PAGE ******/
+
+ div.edit-card form.delete-card {
+        text-align: center;
+        width: 206px;
+
+ }
+
+ form.learnt-button {
+        width: 200px;
+        display: inline;
+ }
+
+ input[value='Learnt?'] {
+     background-color: #07c17a;
+     border: none;
+     color: white;
+     width: 206px;
+     height: 36px;
+     font-size: 1em;
+     margin: 5px 0;
+     text-align: center;
+
+ }
+
+ input[value='Learnt?']:hover {
+      background-color: #70e5cd;
+ }
+
 
 /***** ACCOUNT SETTINGS PAGE ******/
 
