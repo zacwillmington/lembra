@@ -4,13 +4,13 @@ Specs:
 - [x] Use Sinatra to build the app
 - [x] Use ActiveRecord for storing information in a database
 - [x] Include more than one model class (list of model class names e.g. User, Deck, Card..)
-- [x]] Include at least one has_many relationship on your User model (User has_many Decks and Deck has_many Cards)
+- [x] Include at least one has_many relationship on your User model (User has_many Decks and Deck has_many Cards)
 - [x] Include at least one belongs_to relationship on another model (Deck belongs_to User and Card belongs_to a Deck)
 - [x] Include user accounts
 - [x] Ensure that users can't modify content created by other users
 - [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
 - [x] Include user input validations
-- [ ] Display validation failures to user with error message (example form URL e.g. /posts/new)
+- [x] Display validation failures to user with error message (example form URL e.g. /posts/new)
 - [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm

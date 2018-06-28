@@ -63,7 +63,8 @@ class DeckController < ApplicationController
 
         if is_logged_in? && current_user.id == params[:id].to_i
             @deck = Deck.find_by(:id => params[:deck_id])
-            @deck.cards.delete_all()
+            card_ids = @deck.cards.ids
+            Card.where(:id => card_ids).delete_all
             @deck.delete
             redirect to "/users/#{current_user.id}/decks"
         else

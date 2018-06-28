@@ -1,7 +1,7 @@
 
 <h1>Edit Card</h1>
 <div class="edit-card">
-    <form role="form" action="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/<%=@card.id%>" method="post">
+    <form role="form" action="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/<%=current_card.id%>" method="post">
         <input type="hidden" name="_method" value="patch">
         <h3><%=@deck.title%></h3>
         <label for="front_side">Front Side</label>

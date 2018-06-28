@@ -23,6 +23,14 @@ class ApplicationController < Sinatra::Base
           @current_user ||= User.find(session[:id]) if session[:id]
       end
 
+      def current_deck
+          @current_deck ||= Deck.find(params[:deck_id])
+      end
+
+      def current_card
+          @current_card ||= Card.find(params[:card_id])
+      end
+
       def is_logged_in?
           !!current_user
       end

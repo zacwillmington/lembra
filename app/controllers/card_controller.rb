@@ -31,16 +31,16 @@ class CardController < ApplicationController
     end
 
     get '/users/:id/decks/:deck_id/cards/:card_id' do
-        binding.pry
-        @card = Card.find_by(:id => params[:card_id])
+        current_card
         @deck = Deck.find_by(:id => params[:deck_id])
         erb :'/cards/show_card'
     end
 
     post '/users/:id/decks/:deck_id/cards/:card_id/next' do
-        @card = Card.find_by(:id => params[:card_id])
+        current_card
         @deck = Deck.find_by(:id => params[:deck_id])
-        next_card_id(@card.deck)
+        next_card_id(current_card
+            .deck)
         if @next_id == nil
             redirect to "/users/#{current_user.id}/decks/#{@deck.id}/cards/#{@deck.cards.first.id}"
         else
@@ -49,23 +49,23 @@ class CardController < ApplicationController
     end
 
     post '/users/:id/decks/:deck_id/cards/:card_id/flip' do
-        @card = Card.find_by(:id => params[:card_id])
+        current_card
         @deck = Deck.find_by(:id => params[:deck_id])
         if params['Hide'] == 'Hide'
-            @card.update(:flip => nil)
-            @card.save
+            current_card.update(:flip => nil)
+            current_card.save
         end
         if params['Flip'] == 'Flip'
-            @card.update(:flip => true)
-            @card.save
+            current_card.update(:flip => true)
+            current_card.save
         end
-        redirect to "/users/#{current_user.id}/decks/#{@deck.id}/cards/#{@card.id}"
+        redirect to "/users/#{current_user.id}/decks/#{@deck.id}/cards/#{current_card.id}"
     end
 
     get '/users/:id/decks/:deck_id/cards/:card_id/edit' do
         if is_logged_in? && current_user.id == params[:id].to_i
             @deck = Deck.find_by(:id => params[:deck_id])
-            @card = Card.find_by(:id => params[:card_id])
+            current_card
             erb :'/cards/edit_card'
         else
             redirect to "/users/#{current_user.id}/decks"
@@ -73,19 +73,19 @@ class CardController < ApplicationController
     end
 
     patch '/users/:id/decks/:deck_id/cards/:card_id' do
-        @card = Card.find_by(:id => params[:card_id])
+        current_card
         @deck = Deck.find_by(:id => params[:deck_id])
         if @deck.user.id == current_user.id
             if params["Learnt?"] == "Learnt?"
-                @card.update(:learnt => "Yes")
-                @card.save
+                current_card.update(:learnt => "Yes")
+                current_card.save
             else
-                @card.update(:front_side => params['front_side'], :back_side => params['back_side'])
-                if @card.valid?
-                    @card.save
+                current_card.update(:front_side => params['front_side'], :back_side => params['back_side'])
+                if current_card.valid?
+                    current_card.save
                 end
             end
-            redirect to "/users/#{current_user.id}/decks/#{@deck.id}/cards/#{@card.id}"
+            redirect to "/users/#{current_user.id}/decks/#{@deck.id}/cards/#{current_card.id}"
         else
             redirect to "/users/#{current_user.id}/decks"
         end
