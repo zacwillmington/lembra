@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>main.css - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../../README_md.html">README</a>
+  
+    <li><a href="../../Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../config_ru.html">config.ru</a>
+  
+    <li><a href="../../notes_md.html">notes</a>
+  
+    <li><a href="../../public/css/main_css.html">main.css</a>
+  
+    <li><a href="../../spec_md.html">spec</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page public/css/main.css">
+
+<pre>      GENRAL        
+html {
+   height: 100%;
+
+}
+
+body{
+      trim green: #07c17a;   
+   background-color: #232323;
+   font-family: &#39;Exo&#39;, sans-serif;
+   height: 100%;
+}
+
+label {
+    display: block;
+    color: #e3e8e3;
+}
+
+h1, h2, h3 {
+   text-align: center;
+   color: #e3e8e3;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    display: inline;
+}
+
+input {
+  border-radius: 3px;
+  background-color: #232323;
+  border: 2px solid #d1d1d1;
+  color: #07c17a;
+}
+
+.form-style {
+    border: 2px solid grey;
+    width: 400px;
+    width: 100px;
+    border-radius: 3px;
+    margin: auto;
+}
+
+a.anchor-link {
+    background-color: #07c17a;
+    border-radius: 3px;
+    padding: 5px 5px 5px 5px;
+    display: inline;
+    text-decoration: none;
+    color: #e3e8e3;
+    margin: 50px auto;
+}
+
+.anchor-link:hover{
+    background: #70e5cd;
+}
+
+.delete-button{
+    border: none;
+    width: 100px;
+    display: inline;
+    float: right;
+    padding: none;
+}</pre>
+
+<p>.delete-button input{</p>
+
+<pre>background-color: #07c17a;
+border: none;
+border-radius: 3px;
+height: 30px;
+width: 75px;
+font-family: &#39;Exo&#39;, sans-serif;</pre>
+
+<p>}</p>
+
+<p>/***** LAYOUT PAGE ******/</p>
+
+<p>.nav {</p>
+
+<pre>margin-top: 25px;
+margin-right: 20px;</pre>
+
+<p>}</p>
+
+<p>.errors ul li {</p>
+
+<pre>display: block;</pre>
+
+<p>}</p>
+
+<p>/***** HOME PAGE ******/</p>
+
+<pre>form &lt; input {
+    margin-left: 50px;
+}</pre>
+
+<p>.home-page-content {</p>
+
+<pre>margin: 20% 25% 0 25%;
+border: 2px solid #07c17a;
+border-radius: 3px;
+padding: 5px 0 5px 0;</pre>
+
+<p>}</p>
+
+<p>h1.signup {</p>
+
+<pre>text-align: center;</pre>
+
+<p>}</p>
+
+<p>h2.home-title {</p>
+
+<pre>text-align: center;</pre>
+
+<p>}</p>
+
+<p>.signup-login-links {</p>
+
+<pre>text-align: center;
+border: 3px solid #07c17a;
+border-radius: 5px;
+height: 50px;
+width: 280px;
+margin: auto;
+color: white;</pre>
+
+<p>}</p>
+
+<p>.signup-link {</p>
+
+<pre>display: inline-block;
+padding-top: 10px;
+padding-right: 20px;
+font-size: 1.2em;
+text-decoration: none;</pre>
+
+<p>}</p>
+
+<p>.login-link {</p>
+
+<pre>display: inline-block;
+padding-top: 10px;
+padding-left: 10px;
+font-size: 1.2em;</pre>
+
+<p>}</p>
+
+<p>/***** SIGNUP PAGE ******/</p>
+
+<p>h1.signup {</p>
+
+<pre>text-align: center;</pre>
+
+<p>}</p>
+
+<p>email {</p>
+
+<pre>background-color: #232323;
+border-right: 2px solid white;</pre>
+
+<p>}</p>
+
+<p>div.errors ul li {</p>
+
+<pre>color: white;</pre>
+
+<p>}</p>
+
+<p>.signup-form {</p>
+
+<pre>width: 100%;
+margin: auto;</pre>
+
+<p>}</p>
+
+<p>.signup-form form {</p>
+
+<pre>margin: 0 auto;
+width: 206px;
+padding: 50px;</pre>
+
+<p>}</p>
+
+<pre>input[value=&#39;Signup&#39;]{
+    background-color: #07c17a;
+    border: none;
+    color: white;
+    width: 206px;
+    height: 36px;
+    font-size: 1em;
+
+}
+input[value=&#39;Signup&#39;]:hover {
+     background-color: #70e5cd;
+}</pre>
+
+<p>/***** LOGIN PAGE ******/</p>
+
+<p>h1.login {</p>
+
+<pre>text-align: center;</pre>
+
+<p>}</p>
+
+<p>.login-form {</p>
+
+<pre>width: 100%;
+margin: auto;</pre>
+
+<p>}</p>
+
+<p>.login-form form {</p>
+
+<pre>margin: 0 auto;
+width: 206px;
+padding: 50px;</pre>
+
+<p>}</p>
+
+<p>input#username, input#email, input#password{</p>
+
+<pre>margin-bottom: 10px;
+background-color: #232323;
+width: 200px;
+height: 30px;
+font-size: 1em;</pre>
+
+<p>}</p>
+
+<p><a href="value='Login'">input</a>{</p>
+
+<pre>background-color: #07c17a;
+border: none;
+color: white;
+width: 206px;
+height: 36px;
+font-size: 1em;</pre>
+
+<p>} <a href="value='Login'">input</a>:hover {</p>
+
+<pre>background-color: #70e5cd;</pre>
+
+<p>} /***** DECKS PAGE ******/ .wrapper {</p>
+
+<pre>flex-direction: column;
+margin: auto;</pre>
+
+<p>}</p>
+
+<p>.deck {</p>
+
+<pre>background-color: #3f3f3f;
+border-radius: 3px;
+max-width: 90%;
+max-height: 100px;
+padding: 20px 10px 20px 10px;
+margin: auto;</pre>
+
+<p>}</p>
+
+<pre>.deck .anchor-link {
+   position: absolute;
+   right: 90px;
+   margin: auto;
+   padding: 5px 5px 5px 5px;
+}</pre>
+
+<p>.acc-create-deck {</p>
+
+<pre>text-align: center;
+margin: 100px auto;</pre>
+
+<p>}</p>
+
+<pre>.errors {
+    color: white;
+}
+
+/***** CREATE DECK PAGE ******/
+
+.create-deck {
+    width: 100%;
+    margin: auto;
+}
+
+.create-deck form {
+    margin: 0 auto;
+    width: 206px;
+    padding: 50px;
+}
+
+input#title, input#category{
+    margin-bottom: 10px;
+    background-color: #232323;
+    width: 200px;
+    height: 30px;
+    font-size: 1em;
+}
+
+ input[value=&#39;Create&#39;]{
+     background-color: #07c17a;
+     border: none;
+     color: white;
+     width: 206px;
+     height: 36px;
+     font-size: 1em;
+
+ }
+ input[value=&#39;Create&#39;]:hover {
+      background-color: #70e5cd;
+ }</pre>
+
+<p>/***** EDIT DECK PAGE ******/</p>
+
+<p>.edit-deck h3 {</p>
+
+<pre>text-align: left;</pre>
+
+<p>}</p>
+
+<p>.edit-deck {</p>
+
+<pre>width: 100%;
+margin: auto;</pre>
+
+<p>}</p>
+
+<p>.edit-deck form {</p>
+
+<pre>margin: 0 auto;
+width: 206px;</pre>
+
+<p>}</p>
+
+<p>input#title, input#category{</p>
+
+<pre>margin-bottom: 10px;
+background-color: #232323;
+width: 200px;
+height: 30px;
+font-size: 1em;</pre>
+
+<p>}</p>
+
+<pre>input[value=&#39;Edit&#39;], input[value=&#39;Delete&#39;]{
+    background-color: #07c17a;
+    border: none;
+    color: white;
+    width: 206px;
+    height: 36px;
+    font-size: 1em;
+    margin: auto;
+
+}
+input[value=&#39;Edit&#39;]:hover {
+     background-color: #70e5cd;
+}
+
+input[value=&#39;Delete&#39;]:hover {
+     background-color: #70e5cd;
+}
+
+div.edit-deck .anchor-link {
+    text-align: center;
+    display: block;
+    width: 196px;
+    border: none;
+    height: 26px;
+    margin: 5px auto;
+}</pre>
+
+<p>/***** SHOW CARDS PAGE/SHOW DECK PAGE ******/</p>
+
+<p>.card {</p>
+
+<pre>background-color: #3f3f3f;
+border-radius: 3px;
+max-width: 80%;
+max-height: 100px;
+padding: 20px 20px 20px 20px;
+margin: auto;</pre>
+
+<p>}</p>
+
+<p>strong.card-info {</p>
+
+<pre>color: white;
+margin-right: 20px;
+padding:10px 20px 10px 10px;
+border-right: 1px solid grey;
+font-size: .9em;</pre>
+
+<p>}</p>
+
+<p>strong.deck-info {</p>
+
+<pre>color: white;
+margin-right: 20px;
+padding-right: 20px;
+border-right: 1px solid grey;</pre>
+
+<p>}</p>
+
+<p>.delete-button{</p>
+
+<pre>border: none;
+width: 75px;
+display: inline;
+float: right;</pre>
+
+<p>}</p>
+
+<p>.delete-button input{</p>
+
+<pre>background-color: #07c17a;
+border: none;
+border-radius: 3px;
+height: 30px;
+width: 75px;
+font-family: &#39;Exo&#39;, sans-serif;</pre>
+
+<p>}</p>
+
+<p>/***** CREATE CARD PAGE ******/</p>
+
+<p>.create-card h3 {</p>
+
+<pre>text-align: left;</pre>
+
+<p>}</p>
+
+<p>.create-card {</p>
+
+<pre>width: 100%;
+margin: auto;</pre>
+
+<p>}</p>
+
+<p>.create-card form {</p>
+
+<pre>margin: 0 auto;
+width: 206px;</pre>
+
+<p>}</p>
+
+<p>input#front_side, input#back_side {</p>
+
+<pre>margin-bottom: 10px;
+background-color: #232323;
+width: 200px;
+height: 30px;
+font-size: 1em;</pre>
+
+<p>}</p>
+
+<pre>input[value=&#39;Create&#39;] {
+    background-color: #07c17a;
+    border: none;
+    color: white;
+    width: 206px;
+    height: 36px;
+    font-size: 1em;
+    margin: 5px 0;
+
+}
+
+input[value=&#39;Create&#39;]:hover {
+     background-color: #70e5cd;
+}
+
+/***** CREATE CARD PAGE ******/
+
+.edit-card h3 {
+    text-align: left;
+}
+
+.edit-card {
+    width: 100%;
+    margin: auto;
+}
+
+.edit-card form {
+    margin: 0 auto;
+    width: 206px;
+}
+
+input#front_side, input#back_side {
+    margin-bottom: 10px;
+    background-color: #232323;
+    width: 200px;
+    height: 30px;
+    font-size: 1em;
+}
+
+ input[value=&#39;Edit&#39;] {
+     background-color: #07c17a;
+     border: none;
+     color: white;
+     width: 206px;
+     height: 36px;
+     font-size: 1em;
+     margin: 5px 0;
+
+ }
+
+ input[value=&#39;Edit&#39;]:hover {
+      background-color: #70e5cd;
+ }
+
+ div.edit-card .anchor-link {
+     text-align: center;
+     display: block;
+     width: 196px;
+     border: none;
+     height: 26px;
+     margin: auto;
+ }
+
+/***** SHOW CARD PAGE ******/
+
+div.edit-card form.delete-card {
+       text-align: center;
+       width: 206px;
+
+}
+
+form.learnt-button {
+       width: 200px;
+       display: inline;
+}
+
+input[value=&#39;Learnt?&#39;] {
+    background-color: #07c17a;
+    border: none;
+    color: white;
+    width: 206px;
+    height: 36px;
+    font-size: 1em;
+    margin: 5px 0;
+    text-align: center;
+
+}
+
+input[value=&#39;Learnt?&#39;]:hover {
+     background-color: #70e5cd;
+}
+
+input[value=&#39;Next card&#39;] {
+    background-color: #07c17a;
+    border: none;
+    color: white;
+    width: 206px;
+    height: 36px;
+    font-size: 1em;
+    margin: 5px 0;
+    text-align: center;
+
+}
+
+input[value=&#39;Next card&#39;]:hover {
+     background-color: #70e5cd;
+}
+
+input[value=&#39;Flip&#39;] {
+    background-color: #07c17a;
+    border: none;
+    color: white;
+    width: 206px;
+    height: 36px;
+    font-size: 1em;
+    margin: 0;
+    text-align: center;
+
+}
+
+input[value=&#39;Flip&#39;]:hover {
+     background-color: #70e5cd;
+}
+
+input[value=&#39;Hide&#39;] {
+    background-color: #07c17a;
+    border: none;
+    color: white;
+    width: 206px;
+    height: 36px;
+    font-size: 1em;
+    margin: 5px 0 5px 0;
+    text-align: center;
+
+}
+
+input[value=&#39;Hide&#39;]:hover {
+     background-color: #70e5cd;
+}</pre>
+
+<p>/***** ACCOUNT SETTINGS PAGE ******/</p>
+
+<p>.change-password {</p>
+
+<pre>width: 100%;
+margin: 50px auto;</pre>
+
+<p>}</p>
+
+<p>.change-password form{</p>
+
+<pre>margin: 0 auto;
+width: 206px;</pre>
+
+<p>}</p>
+
+<p>input[value=&#39;Delete Account&#39;], input[value=&#39;Change
+Password&#39;]{</p>
+
+<pre>background-color: #07c17a;
+border: none;
+color: white;
+width: 206px;
+height: 36px;
+font-size: 1em;
+margin: 5px 0px;</pre>
+
+<p>}</p>
+
+<pre>input[value=&#39;Change Password&#39;]:hover {
+    background-color: #70e5cd;</pre>
+
+<p>}</p>
+
+<p>input[value=&#39;Delete Account&#39;]:hover {</p>
+
+<pre>background-color: #70e5cd;</pre>
+
+<p>}</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
