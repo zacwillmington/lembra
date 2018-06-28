@@ -1,18 +1,18 @@
 <h1>Edit Deck</h1>
 <div class="edit-deck">
-    <form role="form" action="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>" method="post">
+    <form role="form" action="/users/<%=current_deck.user.id%>/decks/<%=current_deck.id%>" method="post">
         <input type="hidden" name="_method" value="patch">
-        <h3><%=@deck.title%></h3>
+        <h3><%=current_deck.title%></h3>
         <label for="title">New Title</label>
         <input id="title" type="text" name="title">
-        <h3><%=@deck.category%></h3>
+        <h3><%=current_deck.category%></h3>
         <label for="category">New Category</label>
         <input id="category" type="text" name="category">
         <input type="submit" name="Edit" value="Edit">
     </form>
-    <form action="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/delete" method="post">
+    <form action="/users/<%=current_deck.user.id%>/decks/<%=current_deck.id%>/delete" method="post">
         <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Delete">
     </form>
-    <a class="anchor-link" href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>">Return to deck</a>
+    <a class="anchor-link" href="/users/<%=current_deck.user.id%>/decks/<%=current_deck.id%>">Return to deck</a>
 </div>

@@ -1,6 +1,6 @@
 <h1>Create Card</h1>
 <div class="create-card">
-    <form action="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards" method="post">
+    <form action="/users/<%=current_deck.user.id%>/decks/<%=current_deck.id%>/cards" method="post">
         <label for="front_side">Front Side</label>
         <input id="front_side" type="text" name="front_side">
         <label for="back_side">Back Side</label>

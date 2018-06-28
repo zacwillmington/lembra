@@ -1,15 +1,15 @@
 
-<h1>Title: <%=@deck.title%></h1>
-<h2>Category: <%=@deck.category%></h2>
+<h1>Title: <%=current_deck.title%></h1>
+<h2>Category: <%=current_deck.category%></h2>
 <div class="wrapper">
-    <%@deck.cards.each_with_index do |card, index|%>
+    <%current_deck.cards.each_with_index do |card, index|%>
     <div class="card">
         <strong class="card-info"><%=index + 1%></strong>
         <strong class="card-info">Front: <%=card.front_side%></strong>
         <strong class="card-info">Back: <%=card.back_side%></strong>
         <strong class="card-info">Learnt: <%=card.learnt%></strong>
-        <a class="anchor-link" href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/<%=card.id%>/edit">Edit card</a>
-        <form class="delete-button" action="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/<%=card.id%>/delete" method="post">
+        <a class="anchor-link" href="/users/<%=current_deck.user.id%>/decks/<%=current_deck.id%>/cards/<%=card.id%>/edit">Edit card</a>
+        <form class="delete-button" action="/users/<%=current_deck.user.id%>/decks/<%=current_deck.id%>/cards/<%=card.id%>/delete" method="post">
             <input type="hidden" name="_method" value="delete">
             <input type="submit" value="Delete">
         </form>
@@ -19,9 +19,9 @@
 </div>
 <br>
 <div class="acc-create-deck">
-    <% if @deck.cards.size > 0 %>
-      <a class="anchor-link" href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/<%=@deck.cards.first.id%>">Learn this deck<a>
+    <% if current_deck.cards.size > 0 %>
+      <a class="anchor-link" href="/users/<%=current_deck.user.id%>/decks/<%=current_deck.id%>/cards/<%=current_deck.cards.first.id%>">Learn this deck<a>
     <% end %>
-    <a class="anchor-link" href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/new">Add Card<a>
-    <a class="anchor-link" href="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/edit">Edit deck Title or category</a>
+    <a class="anchor-link" href="/users/<%=current_deck.user.id%>/decks/<%=current_deck.id%>/cards/new">Add Card<a>
+    <a class="anchor-link" href="/users/<%=current_deck.user.id%>/decks/<%=current_deck.id%>/edit">Edit deck Title or category</a>
 </div>

@@ -5,23 +5,23 @@
 <% end %>
 <h2><%=current_card.learnt%></h2>
 <div class="edit-card">
-    <form role="form" action="/users/<%=@deck.user.id%>/decks/<%=@deck.id%>/cards/<%=current_card.id%>" method="post">
+    <form role="form" action="/users/<%=current_deck.user.id%>/decks/<%=current_deck.id%>/cards/<%=current_card.id%>" method="post">
         <input type="hidden" name="_method" value="patch">
         <input type="submit" name="Learnt?" value="Learnt?">
     </form>
-    <form class="delete-card" action="/users/<%=current_user.id%>/decks/<%=@deck.id%>/cards/<%=current_card.id%>/flip" method="post">
+    <form class="delete-card" action="/users/<%=current_user.id%>/decks/<%=current_deck.id%>/cards/<%=current_card.id%>/flip" method="post">
         <input type="submit" name="Flip" value="Flip">
     </form>
-    <form class="delete-card" action="/users/<%=current_user.id%>/decks/<%=@deck.id%>/cards/<%=current_card.id%>/flip" method="post">
+    <form class="delete-card" action="/users/<%=current_user.id%>/decks/<%=current_deck.id%>/cards/<%=current_card.id%>/flip" method="post">
         <input type="submit" name="Hide" value="Hide">
     </form>
-    <form class="delete-card" action="/users/<%=current_user.id%>/decks/<%=@deck.id%>/cards/<%=current_card.id%>/delete" method="post">
+    <form class="delete-card" action="/users/<%=current_user.id%>/decks/<%=current_deck.id%>/cards/<%=current_card.id%>/delete" method="post">
         <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Delete">
     </form>
-    <form class="delete-card" action="/users/<%=current_user.id%>/decks/<%=@deck.id%>/cards/<%=current_card.id%>/next" method="post">
+    <form class="delete-card" action="/users/<%=current_user.id%>/decks/<%=current_deck.id%>/cards/<%=current_card.id%>/next" method="post">
         <input type="submit" value="Next card">
     </form>
 </div>
-<a class="anchor-link" href="/users/<%=current_user.id%>/decks/<%=@deck.id%>/cards/<%=current_card.id%>/edit">Edit</a>
+<a class="anchor-link" href="/users/<%=current_user.id%>/decks/<%=current_deck.id%>/cards/<%=current_card.id%>/edit">Edit</a>
 <a class="anchor-link" href="/users/<%=current_user.id%>/decks/<%=current_card.deck.id%>">Return to Deck</a>

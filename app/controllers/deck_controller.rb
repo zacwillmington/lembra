@@ -16,7 +16,7 @@ class DeckController < ApplicationController
     end
 
     post '/users/:id/decks' do
-         @deck = Deck.new(:title => params['title'], :category => params['category'])
+        @deck = Deck.new(:title => params['title'], :category => params['category'])
          if @deck.valid?
              @deck.save
              current_user.decks << @deck
@@ -29,13 +29,12 @@ class DeckController < ApplicationController
     end
 
     get '/users/:id/decks/:deck_id' do
-        @deck = Deck.find_by(:id => params[:deck_id])
+
         erb :'decks/show_deck'
     end
 
     get '/users/:id/decks/:deck_id/edit' do
-        @deck = Deck.find(params[:deck_id])
-        if is_logged_in? && current_user.decks.include?(@deck)
+        if is_logged_in? && current_user.decks.include?(current_deck)
             erb :'/decks/edit_deck'
         else
             @user = User.find(params[:id])
@@ -46,14 +45,14 @@ class DeckController < ApplicationController
     end
 
     patch  '/users/:id/decks/:deck_id' do
-        @deck = Deck.find_by(:id => params[:deck_id])
-        if @deck.user.id == current_user.id
-            @deck.update(:title => params['title'], :category => params['category'])
-            if @deck.valid?
-                @deck.save
+
+        if current_deck.user.id == current_user.id
+            current_deck.update(:title => params['title'], :category => params['category'])
+            if current_deck.valid?
+                current_deck.save
             else
-                flash[:message] = @deck.errors.messages
-                redirect to "/users/#{current_user.id}/decks/#{@deck.id}/edit"
+                flash[:message] = current_deck.errors.messages
+                redirect to "/users/#{current_user.id}/decks/#{current_deck.id}/edit"
             end
         end
             redirect "/users/#{current_user.id}/decks"
@@ -62,10 +61,10 @@ class DeckController < ApplicationController
     delete '/users/:id/decks/:deck_id/delete' do
 
         if is_logged_in? && current_user.id == params[:id].to_i
-            @deck = Deck.find_by(:id => params[:deck_id])
-            card_ids = @deck.cards.ids
+            current_deck = Deck.find_by(:id => params[:deck_id])
+            card_ids = current_deck.cards.ids
             Card.where(:id => card_ids).delete_all
-            @deck.delete
+            current_deck.delete
             redirect to "/users/#{current_user.id}/decks"
         else
             flash[:message] = {:error => "You are unable to delete this deck."}
